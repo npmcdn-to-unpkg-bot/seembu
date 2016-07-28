@@ -1,0 +1,60 @@
+<% if user_signed_in? %>
+  <%= render 'headertwo' %>
+<% else %>
+  <%= render 'headerone' %>
+<% end %>
+
+<div class="container">
+  <main class="main-area">
+    <div class="centered">
+      <section class="cards">
+        <% @projects.each do |project| %>
+        <article class="card">
+          <span class="hover">
+            <figure class="thumbnail">
+              <%= image_tag project.picture.url(:medium) %>
+                <div class="avatar-user-container">
+                  <%= image_tag project.user.profile.avatar.url(:thumb) %>
+                </div>
+                <div class="utilities-project">
+                  <% if user_signed_in? and current_user.id == project.user.id %>
+                    <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" do %>
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to edit_project_path(project), class: "btn btn-success pull-right " do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+            </figure>
+            <div class="card-content">
+              <div class="card-details">
+                <div class="project-title-index">
+                  <%= project.title %>  
+                </div>
+                <div class="user-fullname">
+                  by: <%= link_to profile_path(project.user.profile) do %>
+                    <span class="fullname"><%= project.user.profile.fname %> <%= project.user.profile.lname %></span>
+                  <% end %>
+                </div> </br>
+                <div class="card-project-description">
+                  <strong>Description: </strong></br>
+                  <%= truncate( project.description , length: 35, omission: '...') %>
+                </div>
+                <div class="go-to-project">
+                  <%= link_to "SHOW PROJECT" ,project, class: "btn btn-default btn-project-index-open" %> 
+                </div>
+              </div>
+            </div>
+            <!-- .card-content -->
+          </span>
+        </article>
+        <% end %>
+      <!-- .card -->
+      </section>
+      <div class="pagination-index-container">
+        <%= will_paginate @posts %>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Avatar</th>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Address</th>
+      <th>Contactno</th>
+      <th>Service</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= image_tag profile.avatar.url(:thumb) %></td>
+        <td><%= profile.fname %></td>
+        <td><%= profile.lname %></td>
+        <td><%= profile.address %></td>
+        <td><%= profile.contactno %></td>
+        <td><%= profile.service %></td>
+        <td><%= profile.description %></td>
+        <td><%= link_to 'Show', profile %></td>
+        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

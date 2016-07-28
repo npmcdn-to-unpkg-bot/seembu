@@ -1,0 +1,119 @@
+body {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    line-height: 25px !important;
+    color: #3b4045 !important;
+    font:14px/22px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+      -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300 !important;
+    margin: 0px !important;
+}
+h1 {
+    font-size: 44px !important;
+    line-height: 56px !important;
+    color: #fff !important;
+}
+h2 {
+  font-size: 30px !important;
+  line-height: 35px !important;
+}
+h3 {
+    font-size: 23px !important;
+    line-height: 25px !important;
+}
+h4 {
+  font-size: 20px !important;
+  line-height: 24px !important;
+  font-weight: 400 !important;
+}
+p {
+    font-size: 16px !important;
+    line-height: 25px !important;
+    margin: 0px !important;
+}
+ul {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+
+a {
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s !important;
+}
+
+a:focus,
+.btn:focus,
+.btn:active:focus {
+    box-shadow: none !important;
+    outline: 0 none !important;
+}
+a,
+a:active,
+a:focus,
+a:active {
+    text-decoration: none !important;
+}
+
+section {
+    padding: 100px 0 !important;
+}
+
+.btn{
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+#error_explanation h2 {
+    color: #8A212D;
+    font-size: 20px !important;
+}
+
+#error_explanation li {
+    color: #B04652;
+    font-size: 16px !important;
+}
+
+/*flash*/
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+ .alert{
+    position: relative;
+    z-index: 10000;
+ }

@@ -1,0 +1,108 @@
+<section class="show-project-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <div class="image-container" id="lightGallery">
+          <a class="img-responsive" data-src="<%= @project.picture.url %>">
+            <%= image_tag @project.picture.url, :class => "img-responsive" %>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="project-details-container">
+          <div class="project-details-section">
+            <h2 class="title-project text-center"> <%= @project.title %> </h2></br>
+            <div class="user-case-container">
+              <div class="image-avatar-user">
+              <% if @project.user.profile.avatar.blank? %>
+                <img src="https://s25.postimg.org/d8ua0awj3/13672276_10202065347873149_1662064195_n.jpg" class="img-default-project-show"></img>
+              <% else %>
+                 <%= image_tag @project.user.profile.avatar.url(:small)%>
+              <% end %>
+              </div>
+              <div class="user-case-details">
+                <span class="fullname-user"><%= full_name %></span>
+                <span class="user-service"><%= @project.user.profile.service %> </span>
+                <%= link_to 'MY PROFILE', {:action=>"show", :controller=>"profiles", :id=>@project.user.profile.id}, class: "btn btn-default btn-to-profile-in-show" %>
+              </div>
+            </div>
+
+            <div class="project-divider"></div>
+
+            <div class="project-details-fields">
+              <h2 class="text-center project-description-show"> Project Details </h2></br>
+              <div class="minimize description">
+                <strong>Description: </strong>
+                <% if @project.description.blank? %>
+                  -
+                <% else %>
+                  <%= @project.description %>
+                <% end %>
+              </div>
+
+              <div class="divider-project-details"></div>
+
+              <div class="room-field-container">
+
+              <% if user_signed_in? and current_user.id == @project.user.id %>
+                <%= link_to 'EDIT PROJECT', edit_project_path(@project), :class => "btn btn-default btn-edit-project-show" %>
+                <%= link_to 'TRASH PROJECT', @project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-delete-project-show"%>
+              <% end %>
+              
+                <div class="room-field">
+                  <strong>Type of Project: </strong></br>
+                  <%= @project.project_type %>
+                </div>
+
+                <div class="room-field">
+                  <strong>Room: </strong></br>
+                  <% if @project.room.blank? %>
+                    -
+                  <% else %>
+                    <%= @project.room %>
+                  <% end %>
+                </div>
+
+                <div class="room-field">
+                  <strong>Style: </strong></br>
+                  <% if @project.style.blank? %>
+                    -
+                  <% else %>
+                    <%= @project.style %>
+                  <% end %>
+                </div>
+
+                <div class="room-field">
+                  <strong>Location: </strong></br>
+                  <%= @project.location %>
+                </div>
+
+                <div class="room-field">
+                  <strong>Size: </strong></br>
+                  <%= @project.size %>
+                </div>
+
+                <div class="room-field">
+                  <strong>Year Finished: </strong></br>
+                  <%= @project.year_finished %>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+    $("#lightGallery").lightGallery();
+    $('.minimize').readmore({
+      speed: 400,
+      lessLink: '<a href="#" class="text-center">Close</a>',
+      moreLink: '<a href="#" class="text-center">Read more</a>'
+    }); 
+  }); 
+</script>

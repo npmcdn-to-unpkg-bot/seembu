@@ -1,0 +1,38 @@
+<section id="hero-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="content-block">
+            <h1 class="wow fadeInDown">Seembu</h1>
+            <p class="wow fadeInDown hero-area-subtitle" data-wow-delay="0.3s"> Seek Inspiration | Meet Professionals | Build Dreams</p>
+          </div>
+        </div>
+          <div class="col-md-6 col-sm-12">
+            <% if current_user.profile.fname.blank? or current_user.profile.lname.blank? or current_user.profile.service.blank? %>
+                <div class="block">
+                  <h4 class="text-center"> Welcome Architect! </h4></br>
+                  <p class="text-center"> I am your helper and I will help you setup your Seembu account. </p>
+                  <p> Currently, we are still in our <em>beta phase</em> at this time and we are thankful that you are part of our early stage platform. We will continue to <strong>improve in serving you</strong> so please don't hesitate to leave us your feedback. </p> </br>
+                  <h3> Right now, you'll need fill up your <strong>personal details. </strong></h3>
+                    <li> Press <strong><em>"My Accounts"</em></strong> which can be located on the top navbar.</li>
+                    <li> Locate <strong><em>"Edit My Profile", and click.</em></strong> </li>
+                    <li> Or, click the <strong><em>BUTTON BELLOW</em></strong> </li>
+                  <%= link_to('EDIT MY PROFILE', edit_profile_path( current_user.profile ) , class: "btn btn-default btn-home" )%>
+                </div>
+            <% else %>
+                <div class="block">
+                  <h2 class="text-center"> Searching for something? </h2> </br>
+                    <%= search_form_for(@search, class: "text-center")  do |f| %>
+                      <fieldset class="search-form">
+                        <%= f.text_field :title_or_room_or_location_or_style_or_size_cont, placeholder: "Modern, Manila, Living room?", type: "search", class: "search-input" %>
+                        <%= button_tag(type: 'submit', class: "btn-search") do %>
+                         <i class="fa fa-search"></i>
+                        <% end %>
+                      </fieldset>
+                    <% end %>
+                  </div>
+            <% end %>
+        </div>
+      </div><!-- .row close -->
+    </div><!-- .container close -->
+  </section><!-- header close -->

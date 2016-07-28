@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<section class="show-project-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <div class="image-container" id="lightGallery">
+          <a class="img-responsive" data-src="<%= @project.picture.url %>">
+            <%= image_tag @project.picture.url, :class => "img-responsive" %>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 project-summary">
+        <div class="project-title">
+          <h1 class="text-center"> <%= @project.title %> </h1> </br>
+        </div>
+
+        <div class="row text-center user-details-section">
+            <div class="col-md-4 col-sm-12">
+              <%= image_tag @project.user.profile.avatar.url(:small) %>
+            </div>
+            <div class="col-md-8 col-sm-12">
+              <div class="user-details-container">
+                  <span class="user-fullname"><%= full_name %></span> </br>
+                  <span class="user-service"><%= @project.user.profile.service %> </span> </br>
+                  <span class="user-address"><%= @project.user.profile.address %> </span> </br></br>
+                  <%= link_to 'SHOW PROFILE', {:action=>"show", :controller=>"profiles", :id=>@project.user.profile.id}, class: "btn btn-edit btn-block btn-profile" %>
+              </div>
+            </div> 
+        </div> </br>
+
+        <div class="project-details-section">
+          <h2> Project Details </h2></br>
+
+          <div class="room-field">
+            <strong>Room: </strong>
+            <%= @project.room %>
+          </div>
+
+          <div class="room-field">
+            <strong>Style: </strong>
+            <%= @project.style %>
+          </div>
+
+          <div class="room-field">
+            <strong>Location: </strong>
+            <%= @project.location %>
+          </div>
+
+          <div class="room-field">
+            <strong>Size: </strong>
+            <%= @project.size %>
+          </div>
+
+          <div class="minimize">
+            <strong>Description: </strong>
+            <%= @project.description %>
+          </div> </br> </br>
+            <% if user_signed_in? and current_user.id == @project.user.id %>
+              <%= link_to 'Edit Project', edit_project_path(@project), :class => "btn btn-primary btn-edit btn-lg" %>
+              <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary btn-danger btn-lg"%>
+            <% end %>
+              <%= link_to 'Back', projects_path, :class => "btn btn-primary btn-back btn-lg" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+    $("#lightGallery").lightGallery();
+    $('.minimize').readmore({
+      speed: 400,
+      lessLink: '<a href="#" class="text-center">Close</a>',
+      moreLink: '<a href="#" class="text-center">Read more</a>'
+    }); 
+  }); 
+</script>

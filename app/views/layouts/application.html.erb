@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seembu</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' name='viewport'>
+  <meta charset='utf-8'>
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700italic,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+  <% if user_signed_in? %>
+    <%= render 'layouts/navbar' %>
+  <% else %>
+    <%= render 'layouts/navbar_primary' %>
+  <% end %>
+  
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+
+</body>
+</html>

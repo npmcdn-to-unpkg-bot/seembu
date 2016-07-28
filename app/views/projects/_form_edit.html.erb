@@ -1,0 +1,41 @@
+<section class="form-section">
+  <div class="form-container">
+    <div class="form-page">
+      <div class="auth-form">
+          <%= form_for(@project) do |f| %>
+          <% if @project.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+              <ul>
+              <% @project.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <h2>Post Your Project</h2></br>
+
+          <%= f.file_field :picture, class: "picture-upload" %>
+          <%= f.text_field :title, placeholder: "Title Of This Project", required: true %>
+          <%= f.text_field :room, placeholder: "Room" %>
+          <%= f.text_field :year_finished, placeholder: "Year Finished", required: true %>
+          <%= f.text_field :location, placeholder: "City", required: true %>
+          <%= f.text_field :style, placeholder: "Style / Theme" %>
+
+          <label class="form-label">Room Size: </label>
+          <%= f.select(:size, options_for_select([['Compact'], ['Medium'], ['Large'], ['Expansive']]), required: true )%>
+          <label class="form-label">Type of Project: </label>
+          <%= f.select(:project_type, options_for_select([['Residential'], ['Commercial'], ['Office']]), required: true )%>
+
+          <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
+
+          <div class="actions">
+            <%= f.submit "UPDATE", class: "submit-action" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

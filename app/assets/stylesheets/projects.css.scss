@@ -1,0 +1,272 @@
+/*
+*
+		PROJECT SHOW PAGE
+*
+*/
+
+.image-container{
+  margin: 30px auto;
+  transition: all 0.5s ease-in-out 0s; 
+}
+
+.image-container:hover{
+  margin: 30px auto;
+  cursor: zoom-in !important;
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.8); 
+}
+
+.project-details-container {
+
+}
+
+.project-details-section{
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+}
+
+.project-details-section h2{ color: #539187; text-transform: uppercase; }
+
+.user-case-container{
+  position: relative;
+  display: flex;
+}
+
+.user-case-details {
+    padding: 10px;
+    margin-top: 30px;
+}
+
+span.fullname-user{ font-size: 15px; color: #539187; }
+span.user-service { font-size: 12px; font-weight: bold; }
+
+.btn-to-profile-in-show {
+    color: #165B4F !important;
+    border: 1px solid #165B4F !important;
+    margin-top: 10px !important;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+a.btn.btn-default.btn-to-profile-in-show:hover {
+  background-color: #165B4F;
+  color: #fff !important;
+}
+
+.project-divider {
+  border-top: 3px #539187 solid;
+  width: 20%;
+  position: relative;
+  margin: 40px auto;
+  left: 10px;
+  margin-bottom: 40px;
+}
+
+h2.title-project { font-size: 30px !important; margin-top: 10px !important; overflow: hidden;}
+
+.description strong{
+  font-size: 16px;
+  font-weight: lighter;
+  color: #539187;
+}
+
+.project-description-show{
+  color: #3b4045 !important;
+}
+
+.room-field-container{ position: relative;}
+
+.room-field strong{
+  font-size: 16px;
+  color: #054137;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.room-field{
+  margin-bottom: 10px;
+}
+
+.divider-project-details{
+  border-top: 3px #539187 solid;
+  width: 10%;
+  position: relative;
+  margin: 40px 0;
+}
+
+.btn-edit-project-show{
+  position: absolute;
+  bottom: 40px;
+  right: 1px;
+  color: #165B4F !important;
+  border: 1px solid #165B4F !important;
+  margin-top: 10px !important;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.btn-edit-project-show:hover{
+    background-color: #165B4F !important;
+    color: #fff !important;
+}
+
+.btn-delete-project-show{
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  color: #B04652 !important;
+  border: 1px solid #B04652 !important;
+  margin-top: 10px !important;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.btn-delete-project-show:hover{
+    background-color: #8A212D !important;
+    color: #fff !important;
+}
+
+.img-responsive{
+  text-align: -webkit-center !important;
+  text-align: center;
+}
+
+/*
+*
+		PROJECT INDEX PAGE
+*
+*/
+
+.card {
+	background: white;
+	margin-bottom: 2em;	
+}
+
+.card span.hover {
+	color: black;
+	text-decoration: none !important;
+	-webkit-transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+}
+
+.card span.hover:hover, .card span.hover:focus {
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.4);
+	color: #165B4F;
+}
+
+.card-content {
+	padding: 1.4em;
+}
+
+.card-content h2 {
+	margin-top: 0;
+	margin-bottom: .5em;
+	font-weight: normal;
+}
+
+.card-content p {
+	font-size: 95%;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.thumbnail { border: none; padding: 0; margin-bottom: 0 !important; border: none !important; padding: 0 !important; position: relative !important;}
+
+/* Flexbox styles */
+@media screen and (min-width: 40em) {  
+  .cards {
+    margin-top: -1em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    margin-bottom: 1em;
+    display: flex;
+    flex: 0 1 calc(50% - 0.5em);
+    /* width: calc(50% - 1em); */
+  }
+} /* mq 40em*/
+
+@media screen and (min-width: 60em) {
+  .cards {
+    margin-top: inherit;
+  }
+  
+  .card {
+    margin-bottom: 2em;
+    display: flex;
+    flex: 0 1 calc(33% - 0.5em);
+    /* width: calc(33% - 1em); */
+  }
+} /* mq 60em*/
+
+.btn-index{
+	margin: 0 1px;
+}
+
+.user-details-container-index {
+    margin: 10px;
+}
+
+// span.user-address-index, span.user-service-index{ color: #000;}
+
+// span.user-address-index:hover, span.user-service-index:hover{ color: #165B4F;}
+
+.btn-profile {
+  padding: 3px 5px !important;
+}
+
+#hero-area .block {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 50px 18px;
+    color: #fff;
+}
+
+.btn-trash, .btn-margin-top{
+  margin-top: 5px;
+}
+
+.avatar-user-container{
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+}
+
+.project-title-index { font-size: 20px; font-weight: lighter; text-transform: uppercase; }
+
+.user-fullname { color: #000; font-size: 15px; }
+span.fullname{ color: #165B4F; text-decoration: underline; }
+span.fullname:hover { color: #165B4F; text-decoration: none;}
+
+.btn-project-index-open {
+  position: relative;
+  color: #165B4F !important;
+  border: 1px solid #165B4F !important;
+  margin-top: 5px !important;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+a.btn.btn-default.btn-project-index-open:hover {
+  background-color: #165B4F;
+  color: #fff !important;
+}
+
+.utilities-project a{
+  margin-right: 5px;
+}
+
+.pagination-index-container{
+  position: relative;
+}
+
+.pagination {
+  font-size: 19px;
+  float: right;
+}

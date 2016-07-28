@@ -1,0 +1,167 @@
+	    <section id="hero-area">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-6">
+	                    <div class="content-block">
+	                        <h1 class="wow fadeInDown">Seembu</h1>
+	                        <p class="wow fadeInDown hero-area-subtitle" data-wow-delay="0.3s"> Seek Inspiration | Meet Professionals | Build Dreams</p>
+                             </br></br>
+	                        <div class="wow fadeInDown" data-wow-delay="0.3s">
+	                        	<%= link_to 'Register Now', new_user_registration_path, class: "btn btn-default btn-home" %>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div><!-- .row close -->
+	        </div><!-- .container close -->
+	    </section><!-- header close -->
+
+
+
+        <!-- 
+        About start
+        ==================== -->
+        <section id="about" class="section">
+            <div class="container wow fadeInLeft">
+                <div class="heading wow fadeInUp">
+                    <h2 class="text-center">About us</h2>
+                </div>
+                <div class="sub-heading text-center about-us-subheading">
+                    <h3>We are a company that bridges professional builders and potential clients aiming for great collaboration for implementing dream building or interior project.</h3>
+                </div>
+                <div class="block text-center">
+                    <p> We'll help you explore collections of Professional’s inspiring ideas that suit your preference, find reliable building professionals who are qualified to execute your dream building project, and get in touch with the building professional and collaborate for implementation. </p>
+                </div>
+            </div>
+        </section><!-- #about close -->
+        <!-- 
+        About start
+        ==================== -->
+
+        <!-- 
+        Service start
+        ==================== -->
+        <section id="service" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="heading wow fadeInUp">
+                        <h2>How to use Seembu?</h2>
+                    </div>
+                    <div class="col-sm-12 col-md-4 wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="service">
+                            <div class="icon-box">
+                                <span class="icon">
+                                    <i class="fa fa-lightbulb-o fa-4x"></i>   
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <h3>Know Your Design Needs</h3>
+                                <p>List your design considerations. Search for your ideal building and determine your budget.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 wow fadeInLeft" data-wow-delay="0.6s">
+                        <div class="service">
+                            <div class="icon-box">
+                                <span class="icon">
+                                    <i class="fa fa-users fa-4x"></i>   
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <h3>Check Out Building Experts</h3>
+                                <p>Check the expert's profile and examine the expert by reading their reviews.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 wow fadeInLeft" data-wow-delay="0.9s">
+                        <div class="service">
+                            <div class="icon-box">
+                                <span class="icon">
+                                    <i class="fa fa-phone-square fa-4x"></i>   
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <h3>Connect With Professionals</h3>
+                                <p>Get contract number of the expert then schedule for an appointment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .container close -->
+        </section><!-- #service close -->
+
+        <!-- 
+        Projects start
+        ==================== -->
+        <section id="latest-projects" class="section">
+            <div class="container">
+                <h2 class="wow fadeInUp"> Latest Projects </h2>
+                <main class="main-area">
+                    <div class="centered">
+
+                      <section class="cards">
+                        <% @projects.each do |project| %>
+                        <article class="card">
+                          <span class="hover">
+                            <figure class="thumbnail">
+                              <%= image_tag project.picture.url(:medium) %>
+                                <div class="avatar-user-container">
+                                  <%= image_tag project.user.profile.avatar.url(:thumb) %>
+                                </div>
+                                <div class="utilities-project">
+                                  <% if user_signed_in? and current_user.id == project.user.id %>
+                                    <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" do %>
+                                      <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <% end %>
+                                    <%= link_to edit_project_path(project), class: "btn btn-success pull-right " do %>
+                                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    <% end %>
+                                  <% end %>
+                                </div>
+                            </figure>
+                            <div class="card-content">
+                              <div class="card-details">
+                                <div class="project-title-index">
+                                  <%= project.title %>  
+                                </div>
+                                <div class="user-fullname">
+                                  by: <%= link_to profile_path(project.user.profile) do %>
+                                    <span class="fullname"><%= project.user.profile.fname %> <%= project.user.profile.lname %></span>
+                                  <% end %>
+                                </div> </br>
+                                <div class="card-project-description">
+                                  <strong>Description: </strong></br>
+                                  <%= truncate( project.description , length: 35, omission: '...') %>
+                                </div>
+                                <div class="go-to-project">
+                                  <%= link_to "Show Project" ,project, class: "btn btn-default btn-project-index-open" %> 
+                                </div>
+                              </div>
+                            </div>
+                            <!-- .card-content -->
+                          </span>
+                        </article>
+                        <% end %>
+                      <!-- .card -->
+                      </section>
+                      
+                    <div class="button-for-see-more">
+                        <%= link_to 'SEE MORE', projects_path, class: "btn btn-default btn-seemore pull-right" %>
+                    </div>
+
+                    </div>
+                </main>
+            </div>
+        </section>
+        <!-- 
+        Call to action start
+        ==================== -->        
+        <section id="register" class="call-to-action-container">
+        	<h2 class="text-center wow fadeInUp"> Register now! </h2>
+        	<div class="container">
+        		<div class="auth-container text-center">
+        			<span class="btn-container"><%= link_to 'View More Projects', projects_path, class: "wow fadeInLeft btn btn-default btn-seemore" %></span>
+        			<span class="btn-container"><%= link_to 'Register New Account', new_user_registration_path, class: "wow fadeInLeft btn btn-default btn-seemore" %></span>
+        			<span class="btn-container"><%= link_to 'Login To Account', new_user_session_path, class: "wow fadeInLeft btn btn-default btn-seemore" %></span>
+        		</div>
+        	</div>
+        </section>

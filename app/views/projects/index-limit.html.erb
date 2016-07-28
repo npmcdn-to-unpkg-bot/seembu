@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+      
+<% if user_signed_in? %>
+  <section id="hero-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="content-block">
+            <h1 class="wow fadeInDown">Seembu</h1>
+            <p class="wow fadeInDown hero-area-subtitle" data-wow-delay="0.3s"> Seek Inspiration | Meet Professionals | Build Dreams</p>
+          </div>
+        </div>
+
+        <% if current_user.profile.fname.blank? or current_user.profile.lname.blank? or current_user.profile.service.blank? %>
+          <div class="col-md-6">
+            <div class="block">
+              <h4 class="text-center"> Welcome Architect! </h4></br>
+              <p class="text-center"> I am your helper and I will help you setup your Seembu account. </p>
+              <p> Currently, we are still in our <em>beta phase</em> at this time and we are thankful that you are part of our early stage platform. We will continue to <strong>improve in serving you</strong> so please don't hesitate to leave us your feedback. </p> </br>
+              <h3> Right now, you'll need fill up your <strong>personal details. </strong></h3>
+                <li> Press <strong><em>"My Accounts"</em></strong> which can be located on the top navbar.</li>
+                <li> Locate <strong><em>"Edit My Profile", and click.</em></strong> </li>
+            </div>
+          </div>
+        <% end %>
+      </div><!-- .row close -->
+    </div><!-- .container close -->
+  </section><!-- header close -->
+<% end %>
+
+<div class="container">
+  <h1>Listing Projects</h1></br>
+  <main class="main-area">
+    <div class="centered">
+
+      <section class="cards">
+        <% @projects.each do |project| %>
+        <article class="card">
+          <span class="hover">
+            <figure class="thumbnail">
+              <%= image_tag project.picture.url(:medium) %>
+            </figure>
+            <div class="card-content">
+              <div class="user-details">
+                <div class="row">
+                  <div class="col-md-4 col-sm-12 text-center">
+                    <%= image_tag project.user.profile.avatar.url(:thumb) %>
+                  </div>
+                  <div class="col-md-8 col-sm-12">
+                    <div class="user-details-container-index">
+                      <div class="user-container-cards text-center">
+                        <h4><%= project.title %></h4>
+                          <%= project.user.profile.fname %> <%= project.user.profile.lname %> </br>
+                          <span class="user-service-index"><%= project.user.profile.service %> </span> </br>
+                            <%= link_to 'SHOW PROFILE', {:action=>"show", :controller=>"profiles", :id=>project.user.profile.id}, class: "btn btn-edit btn-profile btn-block" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="project-description-container">
+                <strong> Project Description: </strong> </br>
+                <%= truncate( project.description , length: 35, omission: '...') %>    
+              </div></br>
+
+              <%= link_to project, class: "btn btn-edit" do %>
+                <i class="fa fa-2x fa-search" aria-hidden="true"></i>
+              <% end %>
+
+              <% if user_signed_in? and current_user.id == project.user.id %>
+                <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-index btn-trash btn-danger pull-right" do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to edit_project_path(project), class: "btn btn-margin-top btn-index pull-right btn-edit" do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- .card-content -->
+          </span>
+        </article>
+        <% end %>
+      <!-- .card -->
+      </section>
+
+    </div>
+  </main>
+</div>
