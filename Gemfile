@@ -45,7 +45,6 @@ group :development do
   gem 'spring'
 
   #custom gem
-  gem 'foreman'
   gem 'better_errors'
 end
 

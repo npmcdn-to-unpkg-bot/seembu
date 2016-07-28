@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   end
 
   root 'prehome#index'
+
+  get '*path' => redirect('/')
   
 end
