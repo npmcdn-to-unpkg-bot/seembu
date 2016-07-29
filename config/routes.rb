@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   end
 
   root 'prehome#index'
+  get '*path' => redirect('/')
+
+  resources :contacts, only: [ :new, :create ]
   
 end
