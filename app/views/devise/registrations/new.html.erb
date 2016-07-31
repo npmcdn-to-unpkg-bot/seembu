@@ -7,6 +7,11 @@
 
         <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
 
+        <div class="roles-fields-container">
+        <label class="form-label">I am a? </label>
+        <%= f.select :roles, options_for_select([['Professional'], ['Home Owner']]), required: true %>
+        </div>
+
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />

@@ -117,3 +117,19 @@ textarea#project_description, textarea#profile_description{
   position: relative;
   float: left;
 }
+
+.roles-fields-container{
+  margin-top: 10px;
+}
+
+select#user_roles{
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 45px;
+}
