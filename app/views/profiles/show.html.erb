@@ -78,9 +78,9 @@
           <div class="gallery-section">
             <h2 class="gallery-sign">My Gallery</h2></br>
             <ul id="lightGallery" class="flex-gallery">
-            <% @projects.each do |project| %>
-                <li class="gallery-flex" data-src="<%= project.picture.url %>">
-                    <%= image_tag project.picture.url(:small), class: "img-responsive" %>
+            <% @gallery.each do |gallery| %>
+                <li class="gallery-flex" data-src="<%= gallery.picture.url %>">
+                    <%= image_tag gallery.picture.url(:small), class: "img-responsive" %>
                 </li>
             <% end %>
           </ul>
