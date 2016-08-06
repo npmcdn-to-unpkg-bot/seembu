@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :projects
 
   has_one :profile
-   before_create :build_profile
-   accepts_nested_attributes_for :profile
+    before_create :build_profile
+    accepts_nested_attributes_for :profile
+
 
 end
