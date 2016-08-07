@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [ :edit, :show, :update]
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :projects
 
   #root 'projects#index'
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
 
   root 'prehome#index'
+  #get '*path' => redirect('/')
 
-  get '*path' => redirect('/')
+  resources :contacts, only: [ :new, :create ]
   
 end

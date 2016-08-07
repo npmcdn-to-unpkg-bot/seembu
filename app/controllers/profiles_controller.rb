@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @projects = @profile.user.projects.order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
+    @gallery = @profile.user.projects.order("created_at DESC")
   end
 
 
@@ -41,6 +42,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:fname, :lname, :address, :contactno, :service, :description, :avatar, :avatar_cache, :remove_avatar, :service_provided, :areas_served, :license_no, :awards)
+      params.require(:profile).permit(:fname, :lname, :address, :contactno, :service, :description, :avatar, :avatar_cache, :remove_avatar, :service_provided, :areas_served, :license_no, :awards, :sex, :occupation, :birthdate, :fbacc, :twacc, :website)
     end
 end

@@ -13,7 +13,7 @@
             </div>
             <div class="portfolio-name">
               <% if @profile.fname.blank? or @profile.lname.blank? %>
-                <h2> No Name </h2>
+                <h2> <%= @profile.user.email %> </h2>
               <% else %>
               <h2><%= full_name_portfolio %></h2>
               <% end %>
@@ -31,45 +31,98 @@
                 <span class="label"> Email: </span></br>
                 <span class="portfolio-field"><%= @profile.user.email %></span>
               </div>
+
               <div class="portfolio-details-section">
                 <span class="label"> Address: </span> </br>
                 <span class="portfolio-field"><%= @profile.address %></span>
               </div>
-              <div class="portfolio-details-section">
-                <span class="label"> Service Provided: </span> </br>
+              <% if @profile.user.has_role? :Professional %>
                 <% if @profile.service_provided.blank? %>
-                  -
+                  <div class="portfolio-details-section" hidden >
+                    <span class="label" hidden > Service Provided: </span> </br>
+                    <span class="portfolio-field" hidden ><%= @profile.service_provided %></span>
+                  </div>
                 <% else %>
-                  <span class="portfolio-field"><%= @profile.service_provided %></span>
+                  <div class="portfolio-details-section">
+                    <span class="label"> Service Provided: </span> </br>
+                    <span class="portfolio-field"><%= @profile.service_provided %></span>
+                  </div>
                 <% end %>
-              </div>
-              <div class="portfolio-details-section">
-                <span class="label"> Areas Served: </span> </br>
-              <% if @profile.areas_served.blank? %>
-              -
-              <% else %>
-                <span class="portfolio-field"><%= @profile.areas_served %></span>
-              <% end %>
-              </div>
-              <div class="portfolio-details-section">
-                <span class="label"> License Number: </span></br>
+
+                <% if @profile.areas_served.blank? %>
+                  <div class="portfolio-details-section" hidden >
+                    <span class="label" hidden > Areas Served: </span> </br>
+                    <span class="portfolio-field" hidden ><%= @profile.areas_served %></span>
+                  </div>
+                <% else %>
+                  <div class="portfolio-details-section">
+                    <span class="label"> Areas Served: </span> </br>
+                    <span class="portfolio-field"><%= @profile.areas_served %></span>
+                  </div>
+                <% end %>
+
                 <% if @profile.license_no.blank? %>
-                  -
+                  <div class="portfolio-details-section" hidden>
+                    <span class="label" hidden> License Number: </span></br>
+                    <span class="portfolio-field" hidden ><%= @profile.license_no %></span>
+                  </div>
                 <% else %>
-                  <span class="portfolio-field"><%= @profile.license_no %></span>
+                  <div class="portfolio-details-section">
+                    <span class="label"> License Number: </span></br>
+                    <span class="portfolio-field"><%= @profile.license_no %></span>
+                  </div>
                 <% end %>
-              </div>
-              <%if @profile.awards.blank? %>
-                <div class="portfolio-details-section" hidden>
-                  <span class="label" hidden> Awards: </span></br>
-                  <span class="portfolio-field" hidden><%= @profile.awards %></span>
-                </div>
-              <% else %>
-                <div class="portfolio-details-section">
-                  <span class="label"> Awards: </span></br>
-                  <span class="portfolio-field"><%= @profile.awards %></span>
-                </div>
+
+                <%if @profile.awards.blank? %>
+                  <div class="portfolio-details-section" hidden>
+                    <span class="label" hidden> Awards: </span></br>
+                    <span class="portfolio-field" hidden><%= @profile.awards %></span>
+                  </div>
+                <% else %>
+                  <div class="portfolio-details-section">
+                    <span class="label"> Awards: </span></br>
+                    <span class="portfolio-field"><%= @profile.awards %></span>
+                  </div>
+                <% end %>
+              <% elsif @profile.user.has_role? :Client %>
+
+                <% if @profile.sex.blank? %>
+                  <div class="portfolio-details-section" hidden >
+                    <span class="label" hidden > Gender: </span> </br>
+                    <span class="portfolio-field" hidden ><%= @profile.sex %></span>
+                  </div>
+                <% else %>
+                  <div class="portfolio-details-section">
+                    <span class="label"> Gender: </span> </br>
+                    <span class="portfolio-field"><%= @profile.sex %></span>
+                  </div>
+                <% end %>
+
+                <% if @profile.birthdate.blank? %>
+                  <div class="portfolio-details-section" hidden>
+                    <span class="label" hidden> Birthday: </span></br>
+                    <span class="portfolio-field" hidden ><%= @profile.birthdate %></span>
+                  </div>
+                <% else %>
+                  <div class="portfolio-details-section">
+                    <span class="label">  Birthday: </span></br>
+                    <span class="portfolio-field"><%= @profile.birthdate %></span>
+                  </div>
+                <% end %>
+
+                <%if @profile.occupation.blank? %>
+                  <div class="portfolio-details-section" hidden>
+                    <span class="label" hidden> Occupation: </span></br>
+                    <span class="portfolio-field" hidden><%= @profile.occupation %></span>
+                  </div>
+                <% else %>
+                  <div class="portfolio-details-section">
+                    <span class="label"> Occupation: </span></br>
+                    <span class="portfolio-field"><%= @profile.occupation %></span>
+                  </div>
+                <% end %>
               <% end %>
+
             </div>
           </div>
         </div> </br>
@@ -78,9 +131,9 @@
           <div class="gallery-section">
             <h2 class="gallery-sign">My Gallery</h2></br>
             <ul id="lightGallery" class="flex-gallery">
-            <% @projects.each do |project| %>
-                <li class="gallery-flex" data-src="<%= project.picture.url %>">
-                    <%= image_tag project.picture.url(:small), class: "img-responsive" %>
+            <% @gallery.each do |gallery| %>
+                <li class="gallery-flex" data-src="<%= gallery.picture.url %>">
+                    <%= image_tag gallery.picture.url(:small), class: "img-responsive" %>
                 </li>
             <% end %>
           </ul>

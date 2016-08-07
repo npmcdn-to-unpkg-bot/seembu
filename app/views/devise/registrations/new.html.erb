@@ -5,6 +5,9 @@
         <%= devise_error_messages! %>
         <h2>Sign up</h2></br>
 
+        <label class="form-label">I am a </label>
+        <%= f.select :roles ,options_from_collection_for_select(Role.all,:name, :name ), required: true%>
+
         <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
 
         <% if @minimum_password_length %>
@@ -13,13 +16,6 @@
         <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
 
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" %>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="rememberme-field">
-            <%= f.check_box :remember_me, class: "checkbox_rememberme" %>
-            <%= f.label :remember_me %>
-          </div></br>
-        <% end -%>
 
         <div class="actions">
           <%= f.submit "Register", class: "submit-action" %>
