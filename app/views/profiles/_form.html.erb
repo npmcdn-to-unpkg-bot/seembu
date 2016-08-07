@@ -25,17 +25,17 @@
           <%= f.text_field :fname, placeholder: "First Name", required: true %>
           <%= f.text_field :lname, placeholder: "Last Name", required: true %>
           <%= f.text_field :address, placeholder: "Address", required: true %>
-          <%= f.text_field :occupation, placeholder: "Occupation" %>
 
           <% if current_user.has_role? :Professional %>
 
-            <%= f.text_field :areas_served, placeholder: "Areas/Cities Served" %>
             <%= f.text_field :license_no, placeholder: "License Number" %>
 
             <label class="form-label">Service: </label>
             <%= f.select :service, options_for_select([['Architect'], ['Interior Designer'], ['General Contractor'], ['Design & Build Firm']]), required: true %>
             <label class="form-label">Service Provided Before: </label>
             <%= f.text_field :service_provided, placeholder: "Interior designing, Full scale houses, Autocad services, etc.." %>
+
+            <%= f.text_field :areas_served, placeholder: "Areas/Cities Served" %>
             
             <%= f.telephone_field :contactno, placeholder: "Phone Number" %>
             <%= f.text_field :awards, placeholder: "Awards / Certificate" %>
@@ -45,6 +45,8 @@
             <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
 
           <% elsif current_user.has_role? :Client %>
+
+            <%= f.text_field :occupation, placeholder: "Occupation" %>
 
             <label class="form-label-profile">Birthday: </label>
             <div class="birthdate-field">
