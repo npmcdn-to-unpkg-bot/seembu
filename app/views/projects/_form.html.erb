@@ -21,9 +21,9 @@
           <%= f.text_field :title, placeholder: "Title Of This Project", required: true %>
 
           <label class="form-label">Room Size: </label>
-          <%= f.select(:size, options_for_select([['Compact'], ['Medium'], ['Large'], ['Expansive']]), required: true )%>
+          <%= f.select(:size, options_for_select([['Compact'], ['Medium'], ['Large'], ['Expansive']]), required: true, class: "full-width-select")%>
           <label class="form-label">Type of Project: </label>
-          <%= f.select(:project_type, options_for_select([['Residential'], ['Commercial'], ['Office']]), required: true )%>
+          <%= f.select(:project_type, options_for_select([['Residential'], ['Commercial'], ['Office']]), required: true, class: "full-width-select" )%>
 
           <%= f.text_field :room, placeholder: "Room" %>
           <%= f.text_field :year_finished, placeholder: "Year Finished", required: true %>

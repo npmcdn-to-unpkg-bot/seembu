@@ -100,7 +100,7 @@ textarea#project_description, textarea#profile_description{
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
-  width: 100%;
+  /*width: 100%;*/
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
@@ -133,4 +133,33 @@ select#user_roles{
     box-sizing: border-box;
     font-size: 14px;
     height: 45px;
+}
+
+ select#project_size, select#project_project_type, select#profile_service, select#profile_sex{ 
+  width: 100% !important;
+  margin-bottom: 10px;
+  height: 40px;
+}
+
+select#project_project_type, select#profile_sex{ margin-bottom: 30px; }
+
+.birthdate-field{
+  text-align: left !important;
+}
+
+.birthdate-field select{
+    outline: 0;
+    background: #f2f2f2;
+    border: 0;
+    margin: 0 0 15px;
+    font-size: 20px;
+    height: 35px;
+    width: 32%;
+}
+
+.form-label-profile{
+  position: relative;
+    float: left;
+    width: 100%;
+    text-align: left;
 }

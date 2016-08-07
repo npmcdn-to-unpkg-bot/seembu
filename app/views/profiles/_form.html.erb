@@ -25,6 +25,7 @@
           <%= f.text_field :fname, placeholder: "First Name", required: true %>
           <%= f.text_field :lname, placeholder: "Last Name", required: true %>
           <%= f.text_field :address, placeholder: "Address", required: true %>
+          <%= f.text_field :occupation, placeholder: "Occupation" %>
 
           <% if current_user.has_role? :Professional %>
 
@@ -38,9 +39,24 @@
             
             <%= f.telephone_field :contactno, placeholder: "Phone Number" %>
             <%= f.text_field :awards, placeholder: "Awards / Certificate" %>
+            <%= f.text_field :fbacc, placeholder: "Facebook Account" %>
+            <%= f.text_field :twacc, placeholder: "Twitter Account" %>
+            <%= f.text_field :website, placeholder: "Website Url" %>
             <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
-            
-          <% elsif current_user.has_role? :Professional %>
+
+          <% elsif current_user.has_role? :Client %>
+
+            <label class="form-label-profile">Birthday: </label>
+            <div class="birthdate-field">
+              <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+            </div>
+
+            <label class="form-label">Gender: </label>
+            <%= f.select(:sex, options_for_select([['Male'], ['Female']]), required: true, class: "full-width-select" )%>
+            <%= f.text_field :fbacc, placeholder: "Facebook Account" %>
+            <%= f.text_field :twacc, placeholder: "Twitter Account" %>
+            <%= f.text_field :website, placeholder: "Website Url" %>
+            <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
 
           <% end %>
 
