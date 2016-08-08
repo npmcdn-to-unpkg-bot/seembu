@@ -2,6 +2,9 @@ class Project < ActiveRecord::Base
 
 	mount_uploader :picture, PictureUploader
 
+	extend FriendlyId
+  		friendly_id :title, use: :slugged
+
 	belongs_to :user
 
 	  # User Picture Validation
