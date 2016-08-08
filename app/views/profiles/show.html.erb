@@ -17,7 +17,9 @@
               <% else %>
               <h2><%= full_name_portfolio %></h2>
               <% end %>
-              <span class="portfolio-service"><%= @profile.service %></span>
+              <% if @profile.user.has_role? :Professional %>
+                <span class="portfolio-service"><%= @profile.service %></span>
+              <% end %>
             </div></br>
             <div class="portfolio-description">
               <p class="minimize text-center">
@@ -127,6 +129,7 @@
           </div>
         </div> </br>
 
+        <% if @profile.user.has_role? :Professional %>
         <div class="gallery-container wow fadeInUp" data-wow-delay="0.9s">
           <div class="gallery-section">
             <h2 class="gallery-sign">My Gallery</h2></br>
@@ -140,6 +143,7 @@
           </div>
         </div>
       </div>
+      <% end %>
 
       <div class="col-md-8 col-sm-12 main-bg">
         <% @projects.each do |project| %>
