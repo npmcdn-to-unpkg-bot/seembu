@@ -1,5 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
 
+	def new
+		@user = User.new
+	end
+
 	def create
 		@user = User.new(sign_up_params)	
 		@user.add_role params[:user][:roles]
@@ -8,7 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
 	    if @user.save
 	      redirect_to new_user_session_path, notice: 'Welcome to Seembu! You have successfully signed in. You can now log in your account.'
 	    else
-		  redirect_to new_user_registration_path, alert: 'Oh no, something went wrong. Password may be the issue or you may have the same email with somebody signed up earlier.'
+		  render 'new', alert: 'Oh no, something went wrong. Password may be the issue or you may have the same email with somebody signed up earlier.'
 	    end
 	end
 

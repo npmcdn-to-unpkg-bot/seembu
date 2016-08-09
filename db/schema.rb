@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808191533) do
+ActiveRecord::Schema.define(version: 20160809183357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,19 @@ ActiveRecord::Schema.define(version: 20160808191533) do
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "rating"
+    t.string   "content"
+    t.string   "relation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "profile_id"
+  end
+
+  add_index "reviews", ["profile_id"], name: "index_reviews_on_profile_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -111,4 +124,6 @@ ActiveRecord::Schema.define(version: 20160808191533) do
 
   add_foreign_key "profiles", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "reviews", "profiles"
+  add_foreign_key "reviews", "users"
 end
