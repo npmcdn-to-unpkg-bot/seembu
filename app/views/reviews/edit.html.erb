@@ -1,0 +1,45 @@
+<section class="form-section">
+  <div class="form-container">
+    <div class="form-page">
+      <div class="auth-form">
+          <%= form_for([@profile, @review]) do |f| %>
+          <% if @profile.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+              <ul>
+              <% @profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <h2>Edit Your Review</h2></br>
+          
+          <label class="form-label">Ratings: </label>
+          <div class="rating-section">
+            <div id="rating-form">
+              <%= f.hidden_field :rating, max: 5%>
+            </div>
+          </div>
+
+          <%= f.text_field :relation, placeholder: "Relationship with the reviewed professional", required: true %>
+          <%= f.text_area :content, placeholder: "Comment / Testimonial for this professional" %>
+
+          <div class="actions">
+            <%= f.submit "POST", class: "submit-action" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $('#rating-form').raty({
+    scoreName: 'review[rating]',
+    starHalf: 'fa fa-fw fa-star-half-o fa-3x',
+    starOff: 'fa fa-fw fa-star-o fa-3x',
+    starOn: 'fa fa-fw fa-star fa-3x'
+  });
+</script>

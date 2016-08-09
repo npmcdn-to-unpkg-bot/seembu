@@ -1,0 +1,14 @@
+<div class="gallery-section">
+	<span class="portfolio-field"><div class="review-rating" data-score="<%= review.rating %>"></div></span></br>
+	<span class="portfolio-field"><%= review.relation %></span></br>
+	<span class="portfolio-field"><%= review.content %></span></br>
+
+	<% if user_signed_in? %>
+		<% if review.user_id == current_user.id %>
+
+			<%= link_to "Edit Review", edit_profile_review_path(review.profile, review) %>
+			<%= link_to "Delete Review", profile_review_path(review.profile, review), method: :delete, data: { confirm: "Are you sure? "} %>
+
+		<% end %>
+	<% end %>
+</div>
