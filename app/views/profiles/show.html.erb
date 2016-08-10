@@ -13,12 +13,19 @@
             </div>
             <div class="portfolio-name">
               <% if @profile.fname.blank? or @profile.lname.blank? %>
-                <h2> <%= @profile.user.email %> </h2>
+                <h4> <%= @profile.user.email %> </h4>
               <% else %>
+
               <h2><%= full_name_portfolio %></h2>
               <% end %>
               <% if @profile.user.has_role? :Professional %>
                 <span class="portfolio-service"><%= @profile.service %></span>
+                <%if @profile.reviews.blank? %>
+                  <div hidden></div>
+                <% else %>
+                  <div class="average-review-rating" data-score="<%= @average_reviews %>" ></div>
+                <% end %>
+
               <% end %>
             </div></br>
             <div class="portfolio-description">
@@ -145,8 +152,11 @@
 
           <div class="gallery-container wow fadeInUp" data-wow-delay="0.9s">
             <div class="gallery-section">
-              <h2 class="gallery-sign"> Reviews </h2>
-                <%= render @profile.reviews %>
+              <h2 class="gallery-sign"> <%= @profile.reviews.count %> Reviews </h2></br>
+                <%= render @reviews = @profile.reviews.order("created_at DESC").paginate(:page => params[:page], :per_page => 3) %>
+
+                <%= will_paginate @reviews %>
+
                 <div>
                   <%= link_to "Add Reviews", new_profile_review_path(@profile), class: "btn btn-default btn-project-open" %> 
                 </div>
@@ -205,5 +215,16 @@
       starOn: 'fa fa-fw fa-star'
     });
 
-  }); 
+    $('.average-review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score')
+    },
+      starHalf: 'fa fa-fw fa-star-half-o fa-2x star-color',
+      starOff: 'fa fa-fw fa-star-o fa-2x star-color',
+      starOn: 'fa fa-fw fa-star fa-2x star-color'
+    }); 
+
+  });
+
 </script>

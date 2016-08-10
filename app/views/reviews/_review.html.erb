@@ -1,14 +1,27 @@
-<div class="gallery-section">
-	<span class="portfolio-field"><div class="review-rating" data-score="<%= review.rating %>"></div></span></br>
-	<span class="portfolio-field"><%= review.relation %></span></br>
-	<span class="portfolio-field"><%= review.content %></span></br>
-
-	<% if user_signed_in? %>
-		<% if review.user_id == current_user.id %>
-
-			<%= link_to "Edit Review", edit_profile_review_path(review.profile, review) %>
-			<%= link_to "Delete Review", profile_review_path(review.profile, review), method: :delete, data: { confirm: "Are you sure? "} %>
-
-		<% end %>
+<div class="review-container">
+	<span class="label"> <%= link_to(profile_path(review.user.profile.id), class: "review-label") do %>
+		<%= review.user.profile.fname %> <%= review.user.profile.lname %>
 	<% end %>
-</div>
+	</span>
+	<span class="portfolio-field"><div class="review-rating star-color" data-score="<%= review.rating %>"></div></span>
+	<span class="portfolio-field review-relation"><%= review.relation %></span></br>
+	<div class="minimize">
+		<span class="portfolio-field review-content"><%= review.content %></span></br>
+	</div>
+
+	<div class="btn-container">
+		<% if user_signed_in? %>
+			<% if review.user_id == current_user.id %>
+
+				<%= link_to profile_review_path(review.profile, review), method: :delete, data: { confirm: "Are you sure? "}, class: "btn btn-danger pull-right" do %>
+					<i class="fa fa-trash" aria-hidden="true"></i>
+				<% end %>
+
+				<%= link_to edit_profile_review_path(review.profile, review), class: "btn btn-success pull-right " do %>
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				<% end %>
+
+			<% end %>
+		<% end %>
+	</div>
+</div></br>

@@ -15,13 +15,13 @@
           <% end %>
 
           <h2>Edit Your Review</h2></br>
-          
+
           <label class="form-label">Ratings: </label>
           <div class="rating-section">
             <div id="rating-form">
               <%= f.hidden_field :rating, max: 5%>
             </div>
-          </div>
+          </div></br>
 
           <%= f.text_field :relation, placeholder: "Relationship with the reviewed professional", required: true %>
           <%= f.text_area :content, placeholder: "Comment / Testimonial for this professional" %>
@@ -38,8 +38,8 @@
 <script>
   $('#rating-form').raty({
     scoreName: 'review[rating]',
-    starHalf: 'fa fa-fw fa-star-half-o fa-3x',
-    starOff: 'fa fa-fw fa-star-o fa-3x',
-    starOn: 'fa fa-fw fa-star fa-3x'
+    starHalf: 'fa fa-fw fa-star-half-o fa-3x star-color',
+    starOff: 'fa fa-fw fa-star-o fa-3x star-color',
+    starOn: 'fa fa-fw fa-star fa-3x star-color'
   });
 </script>

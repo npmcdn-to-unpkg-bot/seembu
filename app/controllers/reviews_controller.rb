@@ -14,6 +14,14 @@ class ReviewsController < ApplicationController
   	 	end 
 	 end
 
+	 # def show
+	 # 	if @profile.reviews.blank?
+	 # 		@average_reviews = 0
+	 # 	else
+	 # 		@average_reviews = @profile.reviews.average(:rating).round(2)
+	 # 	end
+	 # end
+
 	 def create
 	 	@review = Review.new(review_params)
 	 	@review.profile_id = @profile.id
