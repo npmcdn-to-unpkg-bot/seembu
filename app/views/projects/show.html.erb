@@ -21,8 +21,16 @@
               <% end %>
               </div>
               <div class="user-case-details">
+
                 <span class="fullname-user"><%= full_name %></span>
                 <span class="user-service"><%= @project.user.profile.service %> </span>
+                
+                <%if @project.user.profile.reviews.blank? %>
+                  <div hidden></div>
+                <% else %>
+                  <div class="average-review-rating" data-score="<%= @average_reviews %>" ></div>
+                <% end %>
+
                 <%= link_to 'MY PROFILE', {:action=>"show", :controller=>"profiles", :id=>@project.user.profile.id}, class: "btn btn-default btn-to-profile-in-show" %>
               </div>
             </div>
@@ -103,6 +111,15 @@ $(document).ready(function() {
       speed: 400,
       lessLink: '<a href="#" class="text-center">Close</a>',
       moreLink: '<a href="#" class="text-center">Read more</a>'
+    });
+    $('.average-review-rating').raty({
+      readOnly: true,
+      score: function(){
+        return $(this).attr('data-score')
+      },
+      starHalf: 'fa fa-fw fa-star-half-o star-color',
+      starOff: 'fa fa-fw fa-star-o star-color',
+      starOn: 'fa fa-fw fa-star star-color'
     }); 
   }); 
 </script>
