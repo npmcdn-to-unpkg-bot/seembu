@@ -9,7 +9,6 @@
 
 .review-label:hover, .review-label:focus{
 	color: #165B4F;
-	text-decoration: underline !important;
 }
 
 .star-color{
@@ -43,4 +42,8 @@ textarea#review_content {
 
 .average-review-rating{
 	margin-top: 10px;
+}
+
+select#review_relation {
+    height: 50px;
 }

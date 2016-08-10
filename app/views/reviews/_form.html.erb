@@ -23,7 +23,8 @@
             </div>
           </div></br>
 
-          <%= f.text_field :relation, placeholder: "Relationship with the reviewed professional", required: true %>
+          <label class="form-label">Relationship with the professional: </label>
+          <%= f.select(:relation, options_for_select([['I am a Client'], ['I am the Contractor'],['I am an Associate'], ['I am the Supplier'], ['I have no relationship with this Professional']]), required: true, class: "full-width-select")%>
           <%= f.text_area :content, placeholder: "Comment / Testimonial for this professional" %>
 
           <div class="actions">
