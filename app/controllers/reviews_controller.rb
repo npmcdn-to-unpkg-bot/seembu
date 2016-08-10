@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
 	before_action :find_profile
 	before_action :find_review, only: [:edit, :update, :destroy]
+	before_action :authenticate_user!
 
 	 def new
 	 	@review = Review.new
