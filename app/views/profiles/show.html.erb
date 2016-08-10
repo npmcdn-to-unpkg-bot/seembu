@@ -13,12 +13,19 @@
             </div>
             <div class="portfolio-name">
               <% if @profile.fname.blank? or @profile.lname.blank? %>
-                <h2> <%= @profile.user.email %> </h2>
+                <h4> <%= @profile.user.email %> </h4>
               <% else %>
+
               <h2><%= full_name_portfolio %></h2>
               <% end %>
               <% if @profile.user.has_role? :Professional %>
                 <span class="portfolio-service"><%= @profile.service %></span>
+                <%if @profile.reviews.blank? %>
+                  <div hidden></div>
+                <% else %>
+                  <div class="average-review-rating" data-score="<%= @average_reviews %>" ></div>
+                <% end %>
+
               <% end %>
             </div></br>
             <div class="portfolio-description">
@@ -130,20 +137,33 @@
         </div> </br>
 
         <% if @profile.user.has_role? :Professional %>
-        <div class="gallery-container wow fadeInUp" data-wow-delay="0.9s">
-          <div class="gallery-section">
-            <h2 class="gallery-sign">My Gallery</h2></br>
-            <ul id="lightGallery" class="flex-gallery">
-            <% @gallery.each do |gallery| %>
-                <li class="gallery-flex" data-src="<%= gallery.picture.url %>">
-                    <%= image_tag gallery.picture.url(:small), class: "img-responsive" %>
-                </li>
-            <% end %>
-          </ul>
+          <div class="gallery-container wow fadeInUp" data-wow-delay="0.5s">
+            <div class="gallery-section">
+              <h2 class="gallery-sign">My Gallery</h2></br>
+              <ul id="lightGallery" class="flex-gallery">
+              <% @gallery.each do |gallery| %>
+                  <li class="gallery-flex" data-src="<%= gallery.picture.url %>">
+                      <%= image_tag gallery.picture.url(:small), class: "img-responsive" %>
+                  </li>
+              <% end %>
+            </ul>
+            </div>
           </div>
-        </div>
+
+          <div class="gallery-container wow fadeInUp" data-wow-delay="0.9s">
+            <div class="gallery-section">
+              <h2 class="gallery-sign"> <%= @profile.reviews.count %> Reviews </h2></br>
+                <%= render @reviews = @profile.reviews.order("created_at DESC").paginate(:page => params[:page], :per_page => 3) %>
+
+                <%= will_paginate @reviews %>
+
+                <div>
+                  <%= link_to "Add Reviews", new_profile_review_path(@profile), class: "btn btn-default btn-project-open" %> 
+                </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <% end %>
 
       <div class="col-md-8 col-sm-12 main-bg">
         <% @projects.each do |project| %>
@@ -178,10 +198,33 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $("#lightGallery").lightGallery();
+
     $('.minimize').readmore({
       speed: 400,
       lessLink: '<a href="#" class="text-center">Close</a>',
       moreLink: '<a href="#" class="text-center">Read more</a>'
+    });
+
+    $('.review-rating').raty({
+      readOnly: true,
+      score: function(){
+        return $(this).attr('data-score');
+      },
+      starHalf: 'fa fa-fw fa-star-half-o',
+      starOff: 'fa fa-fw fa-star-o',
+      starOn: 'fa fa-fw fa-star'
+    });
+
+    $('.average-review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score')
+    },
+      starHalf: 'fa fa-fw fa-star-half-o fa-2x star-color',
+      starOff: 'fa fa-fw fa-star-o fa-2x star-color',
+      starOn: 'fa fa-fw fa-star fa-2x star-color'
     }); 
+
   });
+
 </script>

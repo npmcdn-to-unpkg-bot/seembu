@@ -1,0 +1,46 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/\
+
+.review-label{
+	color: #165B4F;
+	text-decoration: none !important;
+}
+
+.review-label:hover, .review-label:focus{
+	color: #165B4F;
+	text-decoration: underline !important;
+}
+
+.star-color{
+	color: #2E7468;
+}
+.review-relation {
+	color: #539187;
+}
+
+.btn-container {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+}
+
+.review-container{
+	position: relative;
+}
+
+textarea#review_content {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.average-review-rating{
+	margin-top: 10px;
+}

@@ -13,6 +13,13 @@ class ProfilesController < ApplicationController
   def show
     @projects = @profile.user.projects.order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
     @gallery = @profile.user.projects.order("created_at DESC")
+
+    if @profile.reviews.blank?
+      @average_reviews = 0
+    else
+      @average_reviews = @profile.reviews.average(:rating).round(2)
+    end
+
   end
 
 

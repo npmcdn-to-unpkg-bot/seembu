@@ -7,12 +7,16 @@ class ProjectsController < ApplicationController
   def index
     @search = Project.search(params[:q])
     @projects = @search.result.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
-
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    if @project.user.profile.reviews.blank?
+      @average_reviews = 0
+    else
+      @average_reviews = @project.user.profile.reviews.average(:rating).round(2)
+    end
   end
 
   # GET /projects/new
