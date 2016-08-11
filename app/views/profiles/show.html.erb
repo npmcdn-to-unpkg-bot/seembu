@@ -168,24 +168,26 @@
       <div class="col-md-8 col-sm-12 main-bg">
         <% @projects.each do |project| %>
           <div class="project-container-profile">
-            <div class="img-container-projects">
-              <%= image_tag project.picture.url(:medium), class: "img-responsive" %>
-                <% if user_signed_in? and current_user.id == project.user.id %>
-                  <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-embed-trash btn btn-danger" do %>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
+            <div class="wow fadeIn" data-wow-delay="0.8s">
+              <div class="img-container-projects">
+                <%= image_tag project.picture.url(:medium), class: "img-responsive" %>
+                  <% if user_signed_in? and current_user.id == project.user.id %>
+                    <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-embed-trash btn btn-danger" do %>
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to edit_project_path( project ), class: "btn-embed-edit btn btn-success" do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <% end %>
                   <% end %>
-                  <%= link_to edit_project_path( project ), class: "btn-embed-edit btn btn-success" do %>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-            </div>
-            <div class="details-container-projects">
-                <h2 class="project-title-details"><%= project.title %></h2>
-                <div class="details-section-projects">
-                  <div class="minimize">
-                    <h5><%= project.description %></h5>
-                </div>
-                <%= link_to 'OPEN PROJECT', project_path( project ), class: "btn btn-default btn-project-open" %>
+              </div>
+              <div class="details-container-projects">
+                  <h2 class="project-title-details"><%= project.title %></h2>
+                  <div class="details-section-projects">
+                    <div class="minimize">
+                      <h5><%= project.description %></h5>
+                  </div>
+                  <%= link_to 'OPEN PROJECT', project_path( project ), class: "btn btn-default btn-project-open" %>
+              </div>
             </div>
           </div>
         <% end %>
