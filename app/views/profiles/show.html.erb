@@ -139,7 +139,7 @@
         <% if @profile.user.has_role? :Professional %>
           <div class="gallery-container wow fadeInUp" data-wow-delay="0.5s">
             <div class="gallery-section">
-              <h2 class="gallery-sign">My Gallery</h2></br>
+              <h2 class="gallery-sign">Project Gallery</h2></br>
               <ul id="lightGallery" class="flex-gallery">
               <% @gallery.each do |gallery| %>
                   <li class="gallery-flex" data-src="<%= gallery.picture.url %>">

@@ -1,16 +1,10 @@
-<% if user_signed_in? and current_user.has_role? :Professional %>
-  <%= render 'headertwo' %>
-<% elsif user_signed_in? and current_user.has_role? :Client %>
-  <%= render 'headertres' %>
-<% else %>
-  <%= render 'headerone' %>
-<% end %>
+<%= render 'header_add_pages' %>
 
 <div class="container">
   <main class="main-area">
     <div class="centered">
       <section class="cards">
-        <% @projects.each do |project| %>
+        <% @residentials.each do |project| %>
         <article class="card wow fadeInUp" data-wow-delay="0.8s">
           <span class="hover">
             <figure class="thumbnail">
@@ -54,9 +48,6 @@
         <% end %>
       <!-- .card -->
       </section>
-      <div class="pagination-index-container">
-        <%= will_paginate @posts %>
-      </div>
     </div>
   </main>
 </div>
