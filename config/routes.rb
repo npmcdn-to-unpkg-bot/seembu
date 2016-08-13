@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :profiles, only: [ :edit, :show, :update] do
+  resources :profiles, only: [:index, :edit, :show, :update] do
     resources :reviews
   end
 
@@ -23,5 +23,9 @@ Rails.application.routes.draw do
     match 'commercials' => 'projects#commercials', :via => :get
     match 'residentials' => 'projects#residentials', :via => :get
     match 'offices' => 'projects#offices', :via => :get
+
+    #Profile
+    match 'professional/architects' => 'profiles#architects', :via => :get
+    match 'professional/intdesigner' => 'profiles#interior_designers', :via => :get
   
 end

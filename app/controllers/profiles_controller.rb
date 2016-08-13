@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    @users = User.with_any_role(:Professional)
   end
 
   # GET /profiles/1
@@ -39,6 +39,15 @@ class ProfilesController < ApplicationController
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  #Additional pages
+  def architects
+    @architects = Profile.where(service: "Architect")
+  end
+
+  def interior_designers
+    @intdesigners = Profile.where(service: "Interior Designer")
   end
 
   private
