@@ -5,7 +5,13 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: "omniauth_callbacks" } do
+    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+
+  # devise_scope :user do
+  #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
 
   resources :projects
 
