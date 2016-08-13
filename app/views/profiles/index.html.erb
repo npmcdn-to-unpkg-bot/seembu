@@ -9,7 +9,7 @@
             <% if user.profile.avatar.blank? %>
               <img src="https://s25.postimg.org/d8ua0awj3/13672276_10202065347873149_1662064195_n.jpg" class="img-default-pro"></img>
             <% else %>
-              <%= image_tag user.profile.avatar.url(:large) %>
+              <%= image_tag user.profile.avatar.url(:small) %>
             <% end %>
           </div>
           </div>
