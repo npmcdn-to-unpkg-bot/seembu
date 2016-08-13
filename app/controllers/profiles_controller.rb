@@ -5,13 +5,13 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    @users = User.with_any_role(:Professional)
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @projects = @profile.user.projects.order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
+    @projects = @profile.user.projects.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
     @gallery = @profile.user.projects.order("created_at DESC")
 
     if @profile.reviews.blank?
@@ -39,6 +39,15 @@ class ProfilesController < ApplicationController
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  #Additional pages
+  def architects
+    @architects = Profile.where(service: "Architect")
+  end
+
+  def interior_designers
+    @intdesigners = Profile.where(service: "Interior Designer")
   end
 
   private

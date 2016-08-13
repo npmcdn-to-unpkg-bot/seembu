@@ -184,3 +184,49 @@ a.btn.btn-default.btn-project-open:hover {
 	background-color: #165B4F;
 	color: #fff !important;
 }
+
+/*
+*
+				PROFILE INDEX
+*
+*/
+
+.pro-cards {
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+    transition: all 0.5s ease-in-out 0s; 
+}
+
+.pro-cards:hover, .pro-cards:focus {
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.4);
+}
+
+.pro-name-index h3{
+	color: #165B4F;
+	transition: all 0.5s ease-in-out 0s; 
+}
+
+.pro-name-index h3:hover, .pro-name-index h3:focus {
+	color: #539187;
+}
+
+.fb-position-index{
+	position: absolute;
+	top: 1px;
+	right: 1px;
+}
+
+.tw-position-index{
+	position: absolute;
+	top: 1px;
+	right: 39px;
+}
+
+.web-position-index{
+	position: absolute;
+	top: 1px;
+	right: 79px;
+}
+

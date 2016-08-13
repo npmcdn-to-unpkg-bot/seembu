@@ -68,6 +68,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  #Additional Pages
+  def commercials
+    @commercials = Project.where(project_type: "Commercial").order("created_at DESC")
+  end
+
+  def residentials
+    @residentials = Project.where(project_type: "Residential").order("created_at DESC")
+  end
+
+  def offices
+    @offices = Project.where(project_type: "Office").order("created_at DESC")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
