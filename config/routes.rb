@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   root 'prehome#index'
-  #get '*path' => redirect('/')
+  get '*path' => redirect('/')
 
   #Additional Pages for sorting out projects and professional
     #Projects
