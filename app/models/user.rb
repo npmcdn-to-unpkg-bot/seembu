@@ -12,5 +12,11 @@ class User < ActiveRecord::Base
     before_create :build_profile
     accepts_nested_attributes_for :profile
 
+  after_create :send_welcome_email
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_later
+  end
+
 
 end
