@@ -7,6 +7,31 @@ fieldset.search-form {
   border-radius: 5px;
 }
 
+@media(max-width:500px){
+    fieldset.search-form {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 0;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  button.btn-search {
+    z-index: 1;
+    width: 1px;
+    border: 0 none;
+    background: #ceb980;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    -webkit-transform: translate(-50px, 0);
+    -ms-transform: translate(-50px, 0);
+    transform: translate(-50px, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    overflow: hidden;
+  }
+}
+
 input.search-input,
 button.btn-search {
   position: relative;

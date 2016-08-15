@@ -168,7 +168,7 @@
       <div class="col-md-8 col-sm-12 main-bg">
         <% @projects.each do |project| %>
           <div class="project-container-profile">
-            <div class="wow fadeIn" data-wow-delay="0.8s">
+            <div class="project-card-profile wow fadeIn" data-wow-delay="0.8s">
               <div class="img-container-projects">
                 <%= image_tag project.picture.url(:medium), class: "img-responsive" %>
                   <% if user_signed_in? and current_user.id == project.user.id %>

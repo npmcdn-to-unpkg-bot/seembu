@@ -185,6 +185,12 @@ a.btn.btn-default.btn-project-open:hover {
 	color: #fff !important;
 }
 
+@media (min-width:300px) and (max-width:450px){
+	.project-card-profile {
+		width: 320px;
+	}
+}
+
 /*
 *
 				PROFILE INDEX
@@ -228,5 +234,27 @@ a.btn.btn-default.btn-project-open:hover {
 	position: absolute;
 	top: 1px;
 	right: 79px;
+}
+
+@media (min-width: 300px) and (max-width: 400px){
+	.pro-name-index {
+    	font-size: x-small;
+	}
+
+	.pro-name-index h3 {
+		font-size: 15px !important;
+	}
+
+	span.portfolio-field{
+		font-size: 11px;
+	}
+
+	.card-project-areas {
+    font-size: 12px;
+	}
+
+	img {
+    width: 120px;
+	}
 }
 

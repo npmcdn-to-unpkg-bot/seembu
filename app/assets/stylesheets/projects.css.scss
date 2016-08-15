@@ -126,6 +126,144 @@ h2.title-project { font-size: 30px !important; margin-top: 10px !important; over
   text-align: center;
 }
 
+@media(max-width:500px){
+  .image-container {
+    margin: 30px auto;
+    transition: all 0.5s ease-in-out 0s;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .average-review-rating {
+    margin-top: 10px;
+    font-size: 11px;
+  }
+
+  .btn-to-profile-in-show {
+    color: #165B4F !important;
+    border: 1px solid #165B4F !important;
+    margin-top: 10px !important;
+    transition: all 0.5s ease-in-out 0s;
+    font-size: 12px !important;
+  }
+}
+
+@media(min-width:1001px){
+  .service .icon-box .icon {
+      background-color: #26282b;
+      border-radius: 5px;
+      display: inline-block;
+      height: 75px;
+      left: 40%;
+      position: relative;
+      top: 12px;
+      width: 75px;
+      -webkit-transform: rotate(50deg);
+      -moz-transform: rotate(50deg);
+      -ms-transform: rotate(50deg);
+      -o-transform: rotate(50deg);
+      transform: rotate(50deg);
+      background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #539187), color-stop(100%, #165B4F));
+      background: -webkit-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -o-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -ms-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: linear-gradient(135deg, #539187 0%, #165B4F 100%);
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      -ms-transition: all 0.2s ease-in;
+      -khtml-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+  }
+}
+
+@media(min-width:700px) and (max-width:1000px){
+  .service .icon-box .icon {
+      background-color: #26282b;
+      border-radius: 5px;
+      display: inline-block;
+      height: 75px;
+      left: 45%;
+      position: relative;
+      top: 12px;
+      width: 75px;
+      -webkit-transform: rotate(50deg);
+      -moz-transform: rotate(50deg);
+      -ms-transform: rotate(50deg);
+      -o-transform: rotate(50deg);
+      transform: rotate(50deg);
+      background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #539187), color-stop(100%, #165B4F));
+      background: -webkit-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -o-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -ms-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: linear-gradient(135deg, #539187 0%, #165B4F 100%);
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      -ms-transition: all 0.2s ease-in;
+      -khtml-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+  }
+}
+
+@media(min-width:600px) and (max-width:700px){
+  .service .icon-box .icon {
+      background-color: #26282b;
+      border-radius: 5px;
+      display: inline-block;
+      height: 75px;
+      left: 44%;
+      position: relative;
+      top: 12px;
+      width: 75px;
+      -webkit-transform: rotate(50deg);
+      -moz-transform: rotate(50deg);
+      -ms-transform: rotate(50deg);
+      -o-transform: rotate(50deg);
+      transform: rotate(50deg);
+      background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #539187), color-stop(100%, #165B4F));
+      background: -webkit-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -o-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -ms-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: linear-gradient(135deg, #539187 0%, #165B4F 100%);
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      -ms-transition: all 0.2s ease-in;
+      -khtml-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+  }
+}
+
+@media(min-width:400px) and (max-width:600px){
+  .service .icon-box .icon {
+      background-color: #26282b;
+      border-radius: 5px;
+      display: inline-block;
+      height: 75px;
+      left: 40%;
+      position: relative;
+      top: 12px;
+      width: 75px;
+      -webkit-transform: rotate(50deg);
+      -moz-transform: rotate(50deg);
+      -ms-transform: rotate(50deg);
+      -o-transform: rotate(50deg);
+      transform: rotate(50deg);
+      background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #539187), color-stop(100%, #165B4F));
+      background: -webkit-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -o-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: -ms-linear-gradient(-45deg, #539187 0%, #165B4F 100%);
+      background: linear-gradient(135deg, #539187 0%, #165B4F 100%);
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      -ms-transition: all 0.2s ease-in;
+      -khtml-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+  }
+}
+
 /*
 *
 		PROJECT INDEX PAGE
@@ -135,6 +273,13 @@ h2.title-project { font-size: 30px !important; margin-top: 10px !important; over
 .card {
 	background: white;
 	margin-bottom: 2em;	
+}
+
+@media (min-width: 300px) and (max-width: 950px){
+  .card {
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
 }
 
 .card span.hover {
