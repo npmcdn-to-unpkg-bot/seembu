@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :projects
-  has_many :reviews
+  has_many :projects, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
     before_create :build_profile
     accepts_nested_attributes_for :profile
 

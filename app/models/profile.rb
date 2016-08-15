@@ -9,5 +9,5 @@ class Profile < ActiveRecord::Base
 	belongs_to :user
     validates :avatar, file_size: { less_than_or_equal_to: 2.megabytes } 
 
-    has_many :reviews
+    has_many :reviews, dependent: :destroy
 end
