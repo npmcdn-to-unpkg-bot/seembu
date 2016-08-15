@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   
   before_action :set_profile, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show, :architects, :interior_designers]
 
   # GET /profiles
   # GET /profiles.json
