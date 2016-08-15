@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
 				
 
 	    if @user.save
-	      UserMailer.welcome_email(@user).deliver_later
+	      # UserMailer.welcome_email(@user).deliver_later
 	      sign_in_and_redirect @user, :event => :authentication, notice: 'Welcome to Seembu! You have successfully signed in. You can now log in your account.'
 
 	    else
