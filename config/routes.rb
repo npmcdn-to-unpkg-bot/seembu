@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
 
+
+
   resources :profiles, only: [:index, :edit, :show, :update] do
     resources :reviews
+    resources :contacts, only: [:new, :create]
   end
 
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -16,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   root 'prehome#index'
-  #get '*path' => redirect('/')
+  get '*path' => redirect('/')
 
   #Additional Pages for sorting out projects and professional
     #Projects

@@ -69,4 +69,5 @@ gem 'will_paginate', '~> 3.1'
 gem 'cancancan'
 gem 'rolify'
 gem 'friendly_id', '~> 5.1'
+gem 'dotenv-rails', :groups => [:development, :test]
 # gem 'omniauth-facebook'

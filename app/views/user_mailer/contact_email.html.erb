@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h3>Seembu automated mailer</h3>
+    ----
+
+    <h4>Name: </h4>
+    <p><%= @contact.name %></p>
+
+    <h4>Reason For Contacting You: </h4>
+    <p> <%= @contact.reason %> </p>
+
+    <h4>Content Message: </h4>
+    <p> <%= @contact.content %> </p>
+
+    ----
+    <h3><em> Please reply to the person with this contact infomation provided. </em></h3>
+
+	  <h4>Phone Number Of Person: </h4>
+    <p> <em><%= @contact.number %></em> </p>
+
+    <h4>Email Of Person: </h4> 
+    <p> <em><%= @contact.sender_email %></em> </p>
+
+    ----
+    <p>##End of message##</p>
+
+  </body>
+</html>
