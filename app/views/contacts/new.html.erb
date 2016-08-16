@@ -1,0 +1,44 @@
+<section class="form-section">
+  <div class="form-container">
+    <div class="form-page">
+      <div class="auth-form">
+          <%= form_for @contact, url: profile_contacts_path do |f| %>
+          <% if @contact.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+              <ul>
+              <% @contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <h2>Contact For <%= @profile.fname %> <%= @profile.lname %></h2></br>
+
+          <label class="form-label">Reason for Email: </label>
+            <%= f.select :reason, options_for_select([['Costing & Budget Inquiry'], ['Professional Inquiry'], ['Project Related Inquiry'], ['Others']]), required: true %>
+
+          <% if current_user.profile.fname.blank? and current_user.profile.lname.blank? %>
+          	<%= f.text_field :name, placeholder: "Full Name", required: true %>
+          <% else %>
+          	<%= f.hidden_field :name, value: full_name_contacts %>
+          <% end %>
+
+          <% if current_user.profile.contactno.blank? %>
+          	<%= f.text_field :number, placeholder: "Contact Number", required: true %>
+          <% else %>
+          	<%= f.hidden_field :number, value: current_user.profile.contactno %>
+          <% end %>
+
+          <%= f.text_area :content, placeholder: "Message for the Professional", required: true %>
+
+          <div class="actions">
+            <%= f.submit "SEND", class: "submit-action" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

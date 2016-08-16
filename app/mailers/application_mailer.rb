@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "service@seembu.com"
+  default from: "seembu.test@gmail.com"
   layout 'mailer'
 end
