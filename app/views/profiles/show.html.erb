@@ -94,13 +94,10 @@
                   </div>
                 <% end %>
 
-                <% if current_user.id == @profile.user_id %>
-                  <div hidden></div>
-                <% else %>
                 <div class="link-to-contacts">
                   <%= link_to "Contact Me", new_profile_contact_path(@profile), class: "btn btn-default btn-project-open btn-block" %>
                 </div>
-                <% end %>
+
                 
               <% elsif @profile.user.has_role? :Client %>
 
