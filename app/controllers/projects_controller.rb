@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show, :commercials, :residentials, :offices]
 
   # GET /projects
@@ -66,6 +66,17 @@ class ProjectsController < ApplicationController
       format.html { redirect_to :back, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  #Acts as votable 
+  def upvote
+    @project.upvote_from current_user
+    redirect_to projects_path
+  end
+
+  def downvote
+    @project.downvote_from current_user
+    redirect_to projects_path
   end
 
   #Additional Pages
