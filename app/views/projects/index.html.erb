@@ -43,6 +43,14 @@
                   <strong>Description: </strong></br>
                   <%= truncate( project.description , length: 35, omission: '...') %>
                 </div>
+
+                  <%= link_to like_project_path(project),  class: "like btn pull-right", method: :put do %>
+                  <button type="button" class="btn btn-success" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+                    <span class="badge"><%= project.get_upvotes.size %></span>
+                  </button>
+                  
+              <% end %>
                 <div class="go-to-project">
                   <%= link_to "SHOW PROJECT" ,project, class: "btn btn-default btn-project-index-open" %> 
                 </div>

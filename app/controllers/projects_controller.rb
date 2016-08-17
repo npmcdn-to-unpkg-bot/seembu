@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!, except: [:index, :show, :commercials, :residentials, :offices]
 
   # GET /projects
@@ -71,12 +71,7 @@ class ProjectsController < ApplicationController
   #Acts as votable 
   def upvote
     @project.upvote_from current_user
-    redirect_to projects_path
-  end
-
-  def downvote
-    @project.downvote_from current_user
-    redirect_to projects_path
+    redirect_to :back
   end
 
   #Additional Pages
