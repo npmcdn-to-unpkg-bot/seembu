@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   
   before_action :set_profile, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:index, :show, :architects, :interior_designers]
+  before_action :authenticate_user!, except: [:index, :show, :architects, :interior_designers, :design_firms, :architect_firms, :land_architects, :gen_contractors]
 
   # GET /profiles
   # GET /profiles.json
@@ -49,6 +49,26 @@ class ProfilesController < ApplicationController
 
   def interior_designers
     @intdesigners = Profile.where(service: "Interior Designer")
+  end
+
+  def architect_firms
+    @archfirms = Profile.where(service: "Architectural Firm")
+  end
+
+  def intdesign_firms
+    @intdesfirms = Profile.where(service: "Interior Designing Firm")
+  end
+
+  def design_firms
+    @desfirms = Profile.where(service: "Design & Build Firm")
+  end
+
+  def land_architects
+    @landarchs = Profile.where(service: "Landscape Architect")
+  end
+
+  def gen_contractors
+    @genconts = Profile.where(service: "General Contractor")
   end
 
   private

@@ -1,0 +1,96 @@
+<%= render 'header' %>
+
+<section class="pro-section">
+  <% @landarchs.each do |arc| %>
+  <div class="container">
+    <div class="row pro-cards wow fadeInUp" data-wow-delay="0.8s">
+        <div class="col-xs-6 col-md-2 thumbnail-row">
+          <div class="pro-thumbnail">
+            <% if arc.avatar.blank? %>
+              <img src="https://s25.postimg.org/d8ua0awj3/13672276_10202065347873149_1662064195_n.jpg" class="img-default-pro"></img>
+            <% else %>
+              <%= image_tag arc.avatar.url(:small) %>
+            <% end %>
+          </div>
+          </div>
+          <div class="col-xs-6 col-md-10">
+            <div class="pro-content">
+              <div class="pro-name-index">
+                <%= link_to profile_path( arc ) do %>
+                  <h3><%= arc.fname %> <%= arc.lname %></h3>
+                <% end %>
+                <span class="user-service"><%= arc.service %> </span>
+
+                  <div class="profile-index-ss-container">
+
+                    <% if arc.fbacc.blank? %>
+                      <div class="fb-position-index" hidden>
+                        <a href="<%= arc.fbacc %>" hidden>
+                          <i class="fa fa-2x fa-facebook-official" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    <% else %>
+                      <div class="fb-position-index">
+                      <a href="<%= arc.fbacc %>">
+                        <i class="fa fa-2x fa-facebook-official" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                    <% end %>
+
+                    <% if arc.twacc.blank? %>
+                      <div class="tw-position-index" hidden>
+                        <a href="<%= arc.twacc %>" hidden>
+                          <i class="fa fa-2x fa-twitter" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    <% else %>
+                      <div class="tw-position-index">
+                        <a href="<%= arc.twacc %>">
+                          <i class="fa fa-2x fa-twitter" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    <% end %>
+
+                    <% if arc.website.blank? %>
+                      <div class="web-position-index" hidden>
+                        <a href="<%= arc.website %>" hidden>
+                          <i class="fa fa-2x fa-desktop" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    <% else %>
+                      <div class="web-position-index">
+                        <a href="<%= arc.website %>">
+                          <i class="fa fa-2x fa-desktop" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    <% end %>
+
+                    </div>
+                </div>
+
+              </div></br>
+              <div class="card-project-areas">
+                <div class="row">
+                  <div class="col-md-3">
+                    <strong>Services: </strong></br>
+                    <span class="portfolio-field" ><%= arc.service_provided %></span>
+                  </div>
+                  <div class="col-md-3">
+                    <strong>Email Address: </strong></br>
+                    <span class="portfolio-field" ><%= arc.user.email %></span>
+                  </div>
+                  <div class="col-md-3">
+                    <strong>Areas Serviced: </strong></br>
+                    <span class="portfolio-field" ><%= arc.areas_served %></span>
+                  </div>
+                  <div class="col-md-3">
+                    <strong>Business Address: </strong></br>
+                    <span class="portfolio-field" ><%= arc.address %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div></br>
+        </div>
+  <% end %>
+</section>

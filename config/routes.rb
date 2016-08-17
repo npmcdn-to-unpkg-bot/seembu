@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   root 'prehome#index'
-  get '*path' => redirect('/')
+  #get '*path' => redirect('/')
 
   #Additional Pages for sorting out projects and professional
     #Projects
@@ -30,5 +30,10 @@ Rails.application.routes.draw do
     #Profile
     match 'professional/architects' => 'profiles#architects', :via => :get
     match 'professional/intdesigner' => 'profiles#interior_designers', :via => :get
+    match 'professional/architect-firms' => 'profiles#architect_firms', :via => :get
+    match 'professional/intdesigner-firms' => 'profiles#architect_firms', :via => :get
+    match 'professional/design-firms' => 'profiles#design_firms', :via => :get
+    match 'professional/land-architects' => 'profiles#land_architects', :via => :get
+    match 'professional/gen-contractors' => 'profiles#gen_contractors', :via => :get
   
 end
