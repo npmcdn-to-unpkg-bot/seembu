@@ -15,7 +15,7 @@
           <span class="hover">
             <figure class="thumbnail">
               <%= link_to like_project_path(project),  class: "like btn pull-right", method: :put do %>
-                <button type="button" class="btn btn-success" aria-label="Left Align">
+                <button type="button" class="btn btn-like" aria-label="Left Align">
                   <span class="fa fa-heart glyphicon-align-center" aria-hidden="true"></span>
                   <span class="badge"><%= project.get_upvotes.size %></span>
                 </button>
