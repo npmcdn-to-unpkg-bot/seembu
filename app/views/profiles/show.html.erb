@@ -185,6 +185,16 @@
                       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     <% end %>
                   <% end %>
+
+                <div class="like-section">
+                  <%= link_to like_project_path(project),  class: "like-show-profile btn pull-right", method: :put do %>
+                    <button type="button" class="btn btn-like" aria-label="Left Align">
+                      <span class="fa fa-heart glyphicon-align-center" aria-hidden="true"></span>
+                      <span class="badge"><%= project.get_upvotes.size %></span>
+                    </button>
+                  <% end %>
+                </div>
+
               </div>
               <div class="details-container-projects">
                   <h2 class="project-title-details"><%= project.title %></h2>

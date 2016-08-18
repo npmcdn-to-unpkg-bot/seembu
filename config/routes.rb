@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :projects
+  resources :projects do
+    member do
+      put "like" => "projects#upvote"
+    end
+  end
 
   #root 'projects#index'
 

@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+	acts_as_votable
+	
 	mount_uploader :picture, PictureUploader
 
 	extend FriendlyId

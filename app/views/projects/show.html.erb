@@ -7,6 +7,14 @@
             <%= image_tag @project.picture.url, :class => "img-responsive" %>
           </a>
         </div>
+        <div class="like-section">
+            <%= link_to like_project_path(@project),  class: "like-show btn pull-right", method: :put do %>
+              <button type="button" class="btn btn-like" aria-label="Left Align">
+                <span class="fa fa-heart glyphicon-align-center" aria-hidden="true"></span>
+                <span class="badge"><%= @project.get_upvotes.size %></span>
+              </button>
+            <% end %>
+        </div>
       </div>
       <div class="col-md-4 col-sm-12">
         <div class="project-details-container">
@@ -22,11 +30,11 @@
               </div>
               <div class="user-case-details">
 
-                <span class="fullname-user"><%= full_name %></span>
+                <span class="fullname-user"><%= full_name %></span></br>
                 <span class="user-service"><%= @project.user.profile.service %> </span>
                 
                 <%if @project.user.profile.reviews.blank? %>
-                  <div hidden></div>
+                  <div hidden></div></br>
                 <% else %>
                   <div class="average-review-rating" data-score="<%= @average_reviews %>" ></div>
                 <% end %>
