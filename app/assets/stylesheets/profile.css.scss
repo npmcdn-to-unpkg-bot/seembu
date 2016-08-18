@@ -105,6 +105,36 @@ span.label {
 	font-size: 13px;
 }
 
+a.like-show-profile.btn.pull-right {
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+}
+
+@media (min-width: 300px) and (max-width: 500px){
+
+  a.like-show-profile.btn.pull-right {
+	  position: absolute;
+	  right: 5px;
+	  bottom: 0px;
+  }
+
+  button.btn.btn-like{
+    color: #fff;
+    background-color: rgba(46, 116, 104, 0.4);
+    transition: all 0.2s ease-in;
+    width: initial;
+    height: initial;
+  }
+
+  button.btn.btn-like:hover, button.btn.btn-like:focus{
+    color: #fff;
+    background-color: rgb(46, 116, 104);
+    width: initial;
+    height: initial;
+  }
+}
+
 /*
 *
 	Projects
