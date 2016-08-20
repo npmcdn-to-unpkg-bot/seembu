@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :project_attachments
   resources :profiles, only: [:index, :edit, :show, :update] do
     resources :reviews
     resources :contacts, only: [:new, :create]

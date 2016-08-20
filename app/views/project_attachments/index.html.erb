@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Project Attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_attachments.each do |project_attachment| %>
+      <tr>
+        <td><%= project_attachment.project_id %></td>
+        <td><%= project_attachment.picture %></td>
+        <td><%= link_to 'Show', project_attachment %></td>
+        <td><%= link_to 'Edit', edit_project_attachment_path(project_attachment) %></td>
+        <td><%= link_to 'Destroy', project_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project attachment', new_project_attachment_path %>
