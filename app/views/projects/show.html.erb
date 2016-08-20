@@ -3,8 +3,11 @@
     <div class="row">
       <div class="col-md-8 col-sm-12">
         <div class="image-container" id="lightGallery">
-          <a class="img-responsive" data-src="<%= @project.picture.url %>">
-            <%= image_tag @project.picture.url, :class => "img-responsive" %>
+          <a class="img-responsive" data-src="<%# @project.picture.url %>">
+            <% @project_attachments.each do |p| %>
+              <%= image_tag p.picture_url %>
+              <%= link_to "Edit Attachment", edit_project_attachment_path(p) %>
+            <% end %>
           </a>
         </div>
         <div class="like-section">
