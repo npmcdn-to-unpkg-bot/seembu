@@ -1,23 +1,20 @@
 <section class="show-project-section">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-12">
-        <div class="image-container" id="lightGallery">
-          <a class="img-responsive" data-src="<%# @project.picture.url %>">
-            <% @project_attachments.each do |p| %>
-              <%= image_tag p.picture_url %>
-              <%= link_to "Edit Attachment", edit_project_attachment_path(p) %>
-            <% end %>
-          </a>
+      <div class="col-md-8 col-sm-12 grid">
+        <div oncontextmenu="return false; " class="gallery carousel" data-flickity>
+        <% @project_attachments.each do |p| %>
+              <%= image_tag p.picture.url, :class => "carousel-cell img-responsive" %>
+          <% end %>
         </div>
-        <div class="like-section">
-            <%= link_to like_project_path(@project),  class: "like-show btn pull-right", method: :put do %>
+        <!-- <div class="like-section">
+            <%# link_to like_project_path(@project),  class: "like-show btn pull-right", method: :put do %>
               <button type="button" class="btn btn-like" aria-label="Left Align">
                 <span class="fa fa-heart glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= @project.get_upvotes.size %></span>
+                <span class="badge"><%# @project.get_upvotes.size %></span>
               </button>
-            <% end %>
-        </div>
+            <%# end %>
+        </div> -->
       </div>
       <div class="col-md-4 col-sm-12">
         <div class="project-details-container">

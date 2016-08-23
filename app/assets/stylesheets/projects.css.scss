@@ -5,19 +5,19 @@
 */
 
 .image-container{
-  margin: 30px auto;
+  margin: 0 auto;
   transition: all 0.5s ease-in-out 0s; 
 }
 
 .image-container:hover{
-  margin: 30px auto;
+  margin: 0 auto;
   cursor: zoom-in !important;
   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.8); 
 }
 
 .project-details-section{
   background-color: #fff;
-  margin: 30px auto;
+  margin: 0 auto;
   padding: 20px;
   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
 }
@@ -463,4 +463,18 @@ a.btn.btn-default.btn-project-index-open:hover {
 a.like.btn.pull-right {
   position: absolute;
   right: 2px;
+}
+
+/**** Image carousle  ***/
+.gallery.carousel {
+    height: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 450px) {
+  .project-details-section {
+    background-color: #fff;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+  }
 }

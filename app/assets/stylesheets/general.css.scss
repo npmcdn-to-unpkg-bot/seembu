@@ -1,10 +1,10 @@
 body {
-    font-family: 'Lato', sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 14px !important;
     font-weight: 300 !important;
     line-height: 25px !important;
     color: #3b4045 !important;
-    font:14px/22px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font: 14px/22px 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
       -webkit-font-smoothing: antialiased;
 }
 h1,
@@ -67,6 +67,7 @@ a:active {
 
 section {
     padding: 100px 0 !important;
+    margin-top: 30px !important;
 }
 
 .btn{
