@@ -14,13 +14,17 @@
         <article class="card wow fadeInUp" data-wow-delay="0.8s">
           <span class="hover">
             <figure class="thumbnail">
-              <%= link_to like_project_path(project),  class: "like btn pull-right", method: :put do %>
+
+              <!-- <%# link_to like_project_path(project),  class: "like btn pull-right", method: :put do %>
                 <button type="button" class="btn btn-like" aria-label="Left Align">
                   <span class="fa fa-heart glyphicon-align-center" aria-hidden="true"></span>
-                  <span class="badge"><%= project.get_upvotes.size %></span>
+                  <span class="badge"><%# project.get_upvotes.size %></span>
                 </button>
-              <% end %>
-              <%= image_tag project.picture.url(:medium) %>
+              <%# end %> -->
+                <% project.project_attachments.find(1) do |p| %>
+                  <%= image_tag p.picture.url(:medium) %>
+                <% end %>
+
                 <div class="avatar-user-container">
                   <%= image_tag project.user.profile.avatar.url(:thumb) %>
                 </div>
@@ -50,7 +54,7 @@
                   <%= truncate( project.description , length: 35, omission: '...') %>
                 </div>
                 <div class="go-to-project">
-                  <%= link_to "SHOW PROJECT" ,project, class: "btn btn-default btn-project-index-open" %> 
+                  <%= link_to "SHOW PROJECT" ,project, class: "btn btn-default btn-project-index-open"%> 
                 </div>
               </div>
             </div>

@@ -1,11 +1,13 @@
 <section class="show-project-section">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-12 grid">
-        <div oncontextmenu="return false; " class="gallery carousel" data-flickity>
+      <div class="col-md-8 col-sm-12">
+        <div class="gallery single-item">
+
         <% @project_attachments.each do |p| %>
-              <%= image_tag p.picture.url, :class => "carousel-cell img-responsive" %>
+              <%= image_tag p.picture.url, :class => "img-responsive" %>
           <% end %>
+
         </div>
         <!-- <div class="like-section">
             <%# link_to like_project_path(@project),  class: "like-show btn pull-right", method: :put do %>
@@ -71,15 +73,6 @@
                 </div>
 
                 <div class="room-field">
-                  <strong>Room: </strong></br>
-                  <% if @project.room.blank? %>
-                    -
-                  <% else %>
-                    <%= @project.room %>
-                  <% end %>
-                </div>
-
-                <div class="room-field">
                   <strong>Style: </strong></br>
                   <% if @project.style.blank? %>
                     -
@@ -113,8 +106,15 @@
 </section>
 
 <script>
+var slick = $('.single-item').slick({
+      arrows: true
+    });
+
+$(document).ready(slick)
+$(document).on('page:load',slick)
+
 $(document).ready(function() {
-    $("#lightGallery").lightGallery();
+    // $("#lightGallery").lightGallery();
     $('.minimize').readmore({
       speed: 400,
       lessLink: '<a href="#" class="text-center">Close</a>',

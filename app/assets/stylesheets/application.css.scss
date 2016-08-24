@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  *= require light-gallery
+ *= require slick
+ *= require slick-theme
  */
 
 @import "bootstrap-sprockets";

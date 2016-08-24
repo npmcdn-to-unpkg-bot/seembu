@@ -63,7 +63,6 @@ h2.title-project { font-size: 30px !important; margin-top: 10px !important; over
 
 .description strong{
   font-size: 16px;
-  font-weight: lighter;
   color: #539187;
 }
 
@@ -76,7 +75,6 @@ h2.title-project { font-size: 30px !important; margin-top: 10px !important; over
 .room-field strong{
   font-size: 16px;
   color: #054137;
-  font-weight: lighter;
   font-size: 14px;
 }
 
@@ -428,7 +426,7 @@ span.badge {
   left: 3px;
 }
 
-.project-title-index { font-size: 20px; font-weight: lighter; text-transform: uppercase; }
+.project-title-index { font-size: 20px; text-transform: uppercase; }
 
 .user-fullname { color: #000; font-size: 15px; }
 span.fullname{ color: #165B4F; text-decoration: underline; }
@@ -470,11 +468,27 @@ a.like.btn.pull-right {
     height: 100%;
 }
 
-@media (min-width: 320px) and (max-width: 450px) {
+@media (min-width: 320px) and (max-width: 750px) {
   .project-details-section {
     background-color: #fff;
     margin: 40px auto;
     padding: 20px;
     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
   }
+}
+
+.utilities-project a:visited {
+  color: #fff !important;
+}
+
+.slick-next:before {
+  position: relative;
+    content: '→' !important;
+    color: #000 !important;
+}
+
+.slick-prev:before {
+  position: relative;
+    content: '←' !important;
+    color: #000 !important;
 }

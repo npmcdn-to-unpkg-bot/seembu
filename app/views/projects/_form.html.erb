@@ -22,6 +22,7 @@
              <%= p.file_field :picture, :multiple => true, name: "project_attachments[picture][]" %>
            </div>
          <% end %>
+         
           <%= f.text_field :title, placeholder: "Title Of This Project", required: true %>
 
           <label class="form-label">Room Size: </label>
@@ -29,7 +30,6 @@
           <label class="form-label">Type of Project: </label>
           <%= f.select(:project_type, options_for_select([['Residential'], ['Commercial'], ['Office']]), required: true, class: "full-width-select" )%>
 
-          <%= f.text_field :room, placeholder: "Room" %>
           <%= f.text_field :year_finished, placeholder: "Year Finished", required: true %>
           <%= f.text_field :location, placeholder: "City", required: true %>
           <%= f.text_field :style, placeholder: "Style / Theme" %>

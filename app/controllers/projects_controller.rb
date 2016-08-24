@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    @project_attachments = ProjectAttachment.all
+
     @search = Project.search(params[:q])
     @projects = @search.result.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
   end

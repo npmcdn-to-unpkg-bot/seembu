@@ -16,12 +16,13 @@
           <% end %>
 
           <h2>Post Your Project</h2></br>
-
-          <%= f.file_field :picture, class: "picture-upload" %>
+          <label class="form-label">Title: </label>
           <%= f.text_field :title, placeholder: "Title Of This Project", required: true %>
-          <%= f.text_field :room, placeholder: "Room" %>
+          <label class="form-label">Year Finished: </label>
           <%= f.text_field :year_finished, placeholder: "Year Finished", required: true %>
+          <label class="form-label">Location Of Project: </label>
           <%= f.text_field :location, placeholder: "City", required: true %>
+          <label class="form-label">Theme/Style Of Project: </label>
           <%= f.text_field :style, placeholder: "Style / Theme" %>
 
           <label class="form-label">Room Size: </label>
@@ -29,6 +30,7 @@
           <label class="form-label">Type of Project: </label>
           <%= f.select(:project_type, options_for_select([['Residential'], ['Commercial'], ['Office']]), required: true )%>
 
+          <label class="form-label">Description Of Project: </label>
           <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
 
           <div class="actions">
