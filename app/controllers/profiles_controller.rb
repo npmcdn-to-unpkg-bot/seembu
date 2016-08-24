@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @projects = @profile.user.projects.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
-    @gallery = @profile.user.projects.order("created_at DESC")
+    @gallery = @profile.user.projects
 
     if @profile.reviews.blank?
       @average_reviews = 0

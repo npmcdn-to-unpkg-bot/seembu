@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    @project_attachments = ProjectAttachment.all
+
     @search = Project.search(params[:q])
     @projects = @search.result.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
   end
@@ -12,6 +14,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project_attachments = @project.project_attachments.all
+
     if @project.user.profile.reviews.blank?
       @average_reviews = 0
     else
@@ -22,6 +26,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = current_user.projects.build
+    @project_attachment = @project.project_attachments.build
   end
 
   # GET /projects/1/edit
@@ -35,6 +40,9 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+         params[:project_attachments]['picture'].each do |a|
+          @project_attachment = @project.project_attachments.create!(:picture => a)
+      end
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
@@ -95,6 +103,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :room, :location, :style, :size, :description, :picture, :picture_cache, :remove_picture, :project_type, :year_finished, :slug)
+      params.require(:project).permit(:title, :room, :location, :style, :size, :description, :project_type, :year_finished, :slug, project_attachments_attributes: [:id, :project_id, :picture])
     end
 end

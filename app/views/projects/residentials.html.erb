@@ -8,7 +8,9 @@
         <article class="card wow fadeInUp" data-wow-delay="0.8s">
           <span class="hover">
             <figure class="thumbnail">
-              <%= image_tag project.picture.url(:medium) %>
+              <% project.project_attachments.find(1) do |p| %>
+                  <%= image_tag p.picture.url(:medium) %>
+                <% end %>
                 <div class="avatar-user-container">
                   <%= image_tag project.user.profile.avatar.url(:thumb) %>
                 </div>

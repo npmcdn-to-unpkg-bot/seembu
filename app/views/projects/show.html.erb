@@ -2,19 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-12">
-        <div class="image-container" id="lightGallery">
-          <a class="img-responsive" data-src="<%= @project.picture.url %>">
-            <%= image_tag @project.picture.url, :class => "img-responsive" %>
-          </a>
+        <div class="gallery single-item">
+
+        <% @project_attachments.each do |p| %>
+              <%= image_tag p.picture.url, :class => "img-responsive" %>
+          <% end %>
+
         </div>
-        <div class="like-section">
-            <%= link_to like_project_path(@project),  class: "like-show btn pull-right", method: :put do %>
+        <!-- <div class="like-section">
+            <%# link_to like_project_path(@project),  class: "like-show btn pull-right", method: :put do %>
               <button type="button" class="btn btn-like" aria-label="Left Align">
                 <span class="fa fa-heart glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= @project.get_upvotes.size %></span>
+                <span class="badge"><%# @project.get_upvotes.size %></span>
               </button>
-            <% end %>
-        </div>
+            <%# end %>
+        </div> -->
       </div>
       <div class="col-md-4 col-sm-12">
         <div class="project-details-container">
@@ -71,15 +73,6 @@
                 </div>
 
                 <div class="room-field">
-                  <strong>Room: </strong></br>
-                  <% if @project.room.blank? %>
-                    -
-                  <% else %>
-                    <%= @project.room %>
-                  <% end %>
-                </div>
-
-                <div class="room-field">
                   <strong>Style: </strong></br>
                   <% if @project.style.blank? %>
                     -
@@ -113,8 +106,15 @@
 </section>
 
 <script>
+var slick = $('.single-item').slick({
+      arrows: true
+    });
+
+$(document).ready(slick)
+$(document).on('page:load',slick)
+
 $(document).ready(function() {
-    $("#lightGallery").lightGallery();
+    // $("#lightGallery").lightGallery();
     $('.minimize').readmore({
       speed: 400,
       lessLink: '<a href="#" class="text-center">Close</a>',

@@ -148,9 +148,11 @@
               <h2 class="gallery-sign">Project Gallery</h2></br>
               <ul id="lightGallery" class="flex-gallery">
               <% @gallery.each do |gallery| %>
-                  <li class="gallery-flex" data-src="<%= gallery.picture.url %>">
-                      <%= image_tag gallery.picture.url(:small), class: "img-responsive" %>
+                <% gallery.project_attachments.each do |img| %>
+                  <li class="gallery-flex" data-src="<%= img.picture.url %>">
+                      <%= image_tag img.picture.url(:small), class: "img-responsive" %>
                   </li>
+                <% end %>
               <% end %>
             </ul>
             </div>
@@ -176,7 +178,9 @@
           <div class="project-container-profile">
             <div class="project-card-profile wow fadeIn" data-wow-delay="0.8s">
               <div class="img-container-projects">
-                <%= image_tag project.picture.url(:medium), class: "img-responsive" %>
+              <% project.project_attachments.find(1) do |p| %>
+                  <%= image_tag p.picture.url(:medium), class: "img-responsive" %>
+                <% end %>
                   <% if user_signed_in? and current_user.id == project.user.id %>
                     <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-embed-trash btn btn-danger" do %>
                       <i class="fa fa-trash" aria-hidden="true"></i>
@@ -186,14 +190,14 @@
                     <% end %>
                   <% end %>
 
-                <div class="like-section">
-                  <%= link_to like_project_path(project),  class: "like-show-profile btn pull-right", method: :put do %>
+                <!-- <div class="like-section">
+                  <%# link_to like_project_path(project),  class: "like-show-profile btn pull-right", method: :put do %>
                     <button type="button" class="btn btn-like" aria-label="Left Align">
                       <span class="fa fa-heart glyphicon-align-center" aria-hidden="true"></span>
-                      <span class="badge"><%= project.get_upvotes.size %></span>
+                      <span class="badge"><%# project.get_upvotes.size %></span>
                     </button>
-                  <% end %>
-                </div>
+                  <%# end %>
+                </div> -->
 
               </div>
               <div class="details-container-projects">
