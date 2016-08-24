@@ -12,12 +12,12 @@
               <% end %>
             </div>
             <div class="portfolio-name">
-              <% if @profile.fname.blank? or @profile.lname.blank? %>
-                <h4> <%= @profile.user.email %> </h4>
-              <% else %>
-
-              <h2><%= full_name_portfolio %></h2>
-              <% end %>
+              <!-- <%# if @profile.fname.blank? or @profile.lname.blank? %>
+                <h4> <%# @profile.user.email %> </h4>
+              <%# else %>
+              <h2><%# full_name_portfolio %></h2>
+              <%# end %> -->
+              <h2><%= @profile.firmname %></h2>
               <% if @profile.user.has_role? :Professional %>
                 <span class="portfolio-service"><%= @profile.service %></span>
                 <%if @profile.reviews.blank? %>

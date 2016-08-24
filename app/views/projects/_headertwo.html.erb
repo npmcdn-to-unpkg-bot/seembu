@@ -8,7 +8,7 @@
           </div>
         </div>
           <div class="col-md-6 col-sm-12">
-            <% if current_user.profile.fname.blank? or current_user.profile.lname.blank? or current_user.profile.service.blank? %>
+            <% if current_user.profile.firmname.blank? or current_user.profile.service.blank? %>
                 <div class="block">
                   <h4 class="text-center"> Welcome Building Professionals! </h4></br>
                   <p class="text-center"> I am your helper and I will help you setup your Seembu account. </p>
@@ -24,7 +24,7 @@
                   <h2 class="text-center"> Searching for something? </h2> </br>
                     <%= search_form_for(@search, class: "text-center")  do |f| %>
                       <fieldset class="search-form">
-                        <%= f.text_field :title_or_room_or_location_or_style_or_size_or_project_type_cont, placeholder: "Modern, Manila, Living room?", type: "search", class: "search-input" %>
+                        <%= f.text_field :title_or_location_or_style_or_size_or_project_type_cont, placeholder: "Modern, Manila, Living room?", type: "search", class: "search-input" %>
                         <%= button_tag(type: 'submit', class: "btn-search") do %>
                          <i class="fa fa-search"></i>
                         <% end %>

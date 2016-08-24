@@ -22,14 +22,13 @@
             <%= f.hidden_field :avatar_cache %>
           <% end %>
 
-          <%= f.text_field :fname, placeholder: "First Name", required: true %>
-          <%= f.text_field :lname, placeholder: "Last Name", required: true %>
-          <%= f.text_field :address, placeholder: "Address", required: true %>
-
           <% if current_user.has_role? :Professional %>
 
+            <%= f.text_field :firmname, placeholder: "Firm/Company Name", required: true %>
+            <%= f.text_field :fname, placeholder: "First Name" %>
+            <%= f.text_field :lname, placeholder: "Last Name" %>
+            <%= f.text_field :address, placeholder: "Address", required: true %>
             <%= f.text_field :license_no, placeholder: "License Number" %>
-
             <label class="form-label">Service: </label>
             <%= f.select :service, options_for_select([['Architect'], ['Interior Designer'], ['Interior Designing Firm'], ['Architectural Firm'], ['Design & Build Firm'], ['Landscape Architect'],['General Contractor']]), required: true %>
             <label class="form-label">Service Provided Before: </label>
@@ -47,6 +46,9 @@
           <% elsif current_user.has_role? :Client %>
 
             <%= f.text_field :occupation, placeholder: "Occupation" %>
+
+            <%= f.text_field :fname, placeholder: "First Name", required: true %>
+            <%= f.text_field :lname, placeholder: "Last Name", required: true %>
 
             <label class="form-label-profile">Birthday: </label>
             <div class="birthdate-field">

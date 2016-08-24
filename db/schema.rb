@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820071721) do
+ActiveRecord::Schema.define(version: 20160824204653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160820071721) do
     t.string   "fbacc"
     t.string   "twacc"
     t.string   "website"
+    t.string   "firmname"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
@@ -63,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160820071721) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
-    t.string   "room"
     t.string   "location"
     t.string   "style"
     t.string   "size"
