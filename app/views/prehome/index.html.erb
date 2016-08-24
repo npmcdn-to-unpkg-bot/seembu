@@ -103,7 +103,10 @@
                         <article class="card">
                           <span class="hover">
                             <figure class="thumbnail">
-                              <%= image_tag project.picture.url(:medium) %>
+                            <% project.project_attachments.find(1) do |p| %>
+                                <%= image_tag p.picture.url(:medium) %>
+                            <% end %>
+
                                 <div class="avatar-user-container">
                                   <%= image_tag project.user.profile.avatar.url(:thumb) %>
                                 </div>
