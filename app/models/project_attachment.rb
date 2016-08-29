@@ -6,7 +6,7 @@ class ProjectAttachment < ActiveRecord::Base
 	  validates_integrity_of  :picture
 	  validates_processing_of :picture
 
-	  validates :picture, file_size: { less_than_or_equal_to: 8.megabytes }
-
 	  belongs_to :project
+
+	  validates :picture, file_size: { less_than_or_equal_to: 8.megabytes }, presence: true, file_content_type: { allow: ['image/jpeg', 'image/png'] } 
 end

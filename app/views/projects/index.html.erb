@@ -21,6 +21,7 @@
                   <span class="badge"><%# project.get_upvotes.size %></span>
                 </button>
               <%# end %> -->
+
                 <% project.project_attachments.find(1) do |p| %>
                   <%= image_tag p.picture.url(:medium) %>
                 <% end %>

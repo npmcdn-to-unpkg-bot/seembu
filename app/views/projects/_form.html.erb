@@ -19,19 +19,20 @@
 
           <%= f.fields_for :project_attachments do |p| %>
            <div class="field">
-             <%= p.file_field :picture, :multiple => true, name: "project_attachments[picture][]" %>
+             <label class="form-label">Upload Picture/s Of Your Projects: </label>
+             <%= p.file_field :picture, :multiple => true, name: "project_attachments[picture][]", accept: "image/png, image/jpg, image/jpeg", required: true %>
            </div>
          <% end %>
          
           <%= f.text_field :title, placeholder: "Title Of This Project", required: true %>
 
           <label class="form-label">Room Size: </label>
-          <%= f.select(:size, options_for_select([['Compact'], ['Medium'], ['Large'], ['Expansive']]), required: true, class: "full-width-select")%>
+          <%= f.select(:size, options_for_select([['Compact'], ['Medium'], ['Large'], ['Expansive']]), class: "full-width-select")%>
           <label class="form-label">Type of Project: </label>
-          <%= f.select(:project_type, options_for_select([['Residential'], ['Commercial'], ['Office']]), required: true, class: "full-width-select" )%>
-
-          <%= f.text_field :year_finished, placeholder: "Year Finished", required: true %>
+          <%= f.select(:project_type, options_for_select([['Residential'], ['Commercial'], ['Office']]), class: "full-width-select", required: true )%>
+          
           <%= f.text_field :location, placeholder: "City", required: true %>
+          <%= f.text_field :year_finished, placeholder: "Year Finished", required: true %>
           <%= f.text_field :style, placeholder: "Style / Theme" %>
 
           <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
