@@ -7,10 +7,15 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
+  devise_scope :user do
+    get "professional/register" =>"registrations#professional_register"
+    get "user/choose" => "registrations#choose"
+  end
+
   resources :projects do
-    member do
-      put "like" => "projects#upvote"
-    end
+    # member do
+    #   put "like" => "projects#upvote"
+    # end
     resources :project_attachments, only: [:show]
   end
 
