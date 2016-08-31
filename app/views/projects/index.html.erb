@@ -21,9 +21,14 @@
                   <span class="badge"><%# project.get_upvotes.size %></span>
                 </button>
               <%# end %> -->
-
-                <% project.project_attachments.first do |p| %>
-                  <%= image_tag p.picture.url(:medium) %>
+                <% if project.project_attachments.blank? %>
+                  <% project.project_attachments.first do |p| %>
+                    <%= image_tag p.picture.url(:medium) %>
+                  <% end %>
+                <% else %>
+                  <% project.project_attachments.find(1) do |p| %>
+                    <%= image_tag p.picture.url(:medium) %>
+                  <% end %>
                 <% end %>
 
                 <div class="avatar-user-container">

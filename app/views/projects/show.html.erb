@@ -4,7 +4,7 @@
       <div class="col-md-8 col-sm-12">
         <div class="gallery single-item" oncontextmenu="return false;">
 
-        <% @project_attachments.each do |p| %>
+          <% @project_attachments.each do |p| %>
               <%= image_tag p.picture.url, :class => "img-responsive" %>
           <% end %>
 
