@@ -1,13 +1,19 @@
-<section class="initial-registration">
+<section class="login-section">
 	<div class="container">
 		<div class="col-md-6">
 			<div class="pro-container">
-				<%= link_to "I am a professional", professional_register_path %>
+				<%= link_to professional_register_path do %>
+					<div class="pro-choose-section">
+						<h2> I am a Professional </h2>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="nonpro-container">
-				<%= link_to "I am a non-professional", new_user_registration_path %>
+				<%= link_to new_user_registration_path do %>
+					<h2> I am a non-professional </h2>
+				<% end %>
 			</div>
 		</div>
 	</div>

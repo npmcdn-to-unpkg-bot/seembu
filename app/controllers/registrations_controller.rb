@@ -15,7 +15,14 @@ class RegistrationsController < Devise::RegistrationsController
 
 	def create
 		@user = User.new(sign_up_params)
-		@user.add_role :Client
+		
+			if @user.username.blank?
+	    		@user.add_role :Professional
+	    	elsif @user.firmname.blank?
+	    		@user.add_role :Client
+	    	else
+	    		render 'choose', alert: "Don't go fishy now."
+	    	end
 
 	    if @user.save
 	      # UserMailer.welcome_email(@user).deliver_later

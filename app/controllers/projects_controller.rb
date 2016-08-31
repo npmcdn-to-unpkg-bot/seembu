@@ -5,6 +5,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+
+    if user_signed_in? and current_user.profile.lname.blank? and current_user.profile.fname.blank?
+      redirect_to edit_profile_path(current_user)
+    end
+
     @project_attachments = ProjectAttachment.all
 
     @search = Project.search(params[:q])

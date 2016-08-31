@@ -6,6 +6,6 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV["aws_access_secret_key"],
       
   }
-  config.fog_directory  = "seembu"
+  config.fog_directory  = "seembu-test"
   config.fog_public     = false
 end

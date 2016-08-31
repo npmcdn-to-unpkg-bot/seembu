@@ -9,7 +9,11 @@
 
         <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
         
-        <%= f.text_field :firmname, placeholder: "Firm/Company Name", required: true %>
+        <% if @user.has_role? :Professional %>
+          <%= f.text_field :firmname, placeholder: "Firm/Company Name", required: true %>
+        <% elsif @user.has_role? :Client %>
+          <%= f.text_field :username, placeholder: "Firm/Company Name", required: true %>
+        <% end %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
