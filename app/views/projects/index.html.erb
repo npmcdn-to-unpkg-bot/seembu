@@ -22,7 +22,7 @@
                 </button>
               <%# end %> -->
 
-                <% project.project_attachments.find(1) do |p| %>
+                <% project.project_attachments.first do |p| %>
                   <%= image_tag p.picture.url(:medium) %>
                 <% end %>
 
