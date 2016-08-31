@@ -131,8 +131,11 @@
 --*/
 
 #hero-area {
-  padding:130px 0;
-    background: rgba(0, 0, 0, 0) linear-gradient(135deg, #539187 0%, #165B4F 100%) repeat scroll 0 0;
+    padding:130px 0;
+    /*background: rgba(0, 0, 0, 0) linear-gradient(135deg, #539187 0%, #165B4F 100%) repeat scroll 0 0;*/
+    background-image: image-url("frontpage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 // #hero-area:before {
 //     content: "";
@@ -288,10 +291,14 @@
     line-height: 30px;
 }
 
-#hero-area .block .counter {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 75px 18px;
+#hero-area .block {
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    padding: 50px 18px;
+    color: #fff;
 }
+
+
 #hero-area .block .counter h2 {
     color: #fff;
     font-size: 30px;
