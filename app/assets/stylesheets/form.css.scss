@@ -172,8 +172,29 @@ select#project_project_type, select#profile_sex{ margin-bottom: 30px; }
 *
 ***/
 
-.pro-choose-section, .nonpro-container {
-  text-align: center;
-  height: 400px;
-  background-color: green;
+.choose-container {
+  background-color: #f2f2f2 !important;
+  padding: 50px 10px 200px 10px;
+  position: relative;
+}
+
+.choose-header{ padding-bottom: 40px; }
+
+h3.header, h2.header{
+  color: #165B4F;
+  margin-bottom: 5px !important;
+}
+
+h4.sub-header{ color: #539187; }
+
+.pro-choose-section{
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+  transition: all 0.5s ease-in-out 0s; 
+  padding: 50px;
+  position: relative;
+  margin-bottom: 20px;
+
+  &:hover {
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.4);
+  }
 }

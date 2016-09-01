@@ -1,19 +1,29 @@
 <section class="login-section">
 	<div class="container">
-		<div class="col-md-6">
-			<div class="pro-container">
-				<%= link_to professional_register_path do %>
-					<div class="pro-choose-section">
-						<h2> I am a Professional </h2>
-					</div>
-				<% end %>
+		<div class="choose-container">
+			<div class="choose-header">
+				<h2 class="text-center header"> Registration Path </h2>
+				<h4 class="text-center sub-header">What do you wish to accomplish? </h4>
 			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="nonpro-container">
-				<%= link_to new_user_registration_path do %>
-					<h2> I am a non-professional </h2>
-				<% end %>
+			<div class="col-md-6">
+				<div class="pro-container">
+					<%= link_to(professional_register_path, class: "text-center") do %>
+						<div class="pro-choose-section">
+							<h3 class="header">"I want to get hired"</h3></br>
+							<h4 class="sub-header"> I am a Professional</h4>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="nonpro-container">
+					<%= link_to(new_user_registration_path, class: "text-center") do %>
+						<div class="pro-choose-section">
+							<h3 class="header">"I want view or hire of pro's"</h3></br>
+							<h4 class="sub-header"> I am a non Professional </h4>
+						</div>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
