@@ -24,27 +24,27 @@
 
           <% if current_user.has_role? :Professional %>
 
-            <%= f.text_field :fname, placeholder: "First Name" %>
-            <%= f.text_field :lname, placeholder: "Last Name" %>
+            <%= f.text_field :fname, placeholder: "First Name", required: true  %>
+            <%= f.text_field :lname, placeholder: "Last Name", required: true  %>
             <%= f.text_field :address, placeholder: "Address", required: true %>
-            <%= f.text_field :license_no, placeholder: "License Number" %>
+            <%= f.text_field :license_no, placeholder: "License Number (optional)" %>
             <label class="form-label">Service: </label>
             <%= f.select :service, options_for_select([['Architect'], ['Interior Designer'], ['Interior Designing Firm'], ['Architectural Firm'], ['Design & Build Firm'], ['Landscape Architect'],['General Contractor']]), required: true %>
             <label class="form-label">Service Provided Before: </label>
-            <%= f.text_field :service_provided, placeholder: "Interior designing, Full scale houses, Autocad services, etc.." %>
+            <%= f.text_field :service_provided, placeholder: "Interior designing, Full scale houses, Autocad services, etc..", required: true  %>
 
-            <%= f.text_field :areas_served, placeholder: "Areas/Cities Served" %>
+            <%= f.text_field :areas_served, placeholder: "Areas/Cities Served", required: true  %>
             
-            <%= f.telephone_field :contactno, placeholder: "Phone Number" %>
-            <%= f.text_field :awards, placeholder: "Awards / Certificate" %>
-            <%= f.text_field :fbacc, placeholder: "Facebook Account" %>
-            <%= f.text_field :twacc, placeholder: "Twitter Account" %>
-            <%= f.text_field :website, placeholder: "Website Url" %>
-            <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
+            <%= f.telephone_field :contactno, placeholder: "Phone Number (optional)" %>
+            <%= f.text_field :awards, placeholder: "Awards / Certificate (optional)" %>
+            <%= f.text_field :fbacc, placeholder: "Facebook Account (optional)" %>
+            <%= f.text_field :twacc, placeholder: "Twitter Account (optional)" %>
+            <%= f.text_field :website, placeholder: "Website Url (optional)" %>
+            <%= f.text_area :description, placeholder: "Short Description (optional)", class: "form-description" %>
 
           <% elsif current_user.has_role? :Client %>
 
-            <%= f.text_field :occupation, placeholder: "Occupation" %>
+            <%= f.text_field :occupation, placeholder: "Occupation", required: true  %>
 
             <%= f.text_field :fname, placeholder: "First Name", required: true %>
             <%= f.text_field :lname, placeholder: "Last Name", required: true %>
@@ -56,10 +56,10 @@
 
             <label class="form-label">Gender: </label>
             <%= f.select(:sex, options_for_select([['Male'], ['Female']]), required: true, class: "full-width-select" )%>
-            <%= f.text_field :fbacc, placeholder: "Facebook Account" %>
-            <%= f.text_field :twacc, placeholder: "Twitter Account" %>
-            <%= f.text_field :website, placeholder: "Website Url" %>
-            <%= f.text_area :description, placeholder: "Short Description", class: "form-description" %>
+            <%= f.text_field :fbacc, placeholder: "Facebook Account (optional)" %>
+            <%= f.text_field :twacc, placeholder: "Twitter Account (optional)" %>
+            <%= f.text_field :website, placeholder: "Website Url (optional)" %>
+            <%= f.text_area :description, placeholder: "Short Description (optional)", class: "form-description" %>
 
           <% end %>
 
