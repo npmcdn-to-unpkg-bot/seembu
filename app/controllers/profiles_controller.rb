@@ -6,12 +6,26 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
+
+    # Conditional for current users
+    if user_signed_in? and current_user.profile.lname.blank? and current_user.profile.fname.blank?
+      redirect_to edit_profile_path(current_user)
+    end
+
     @users = User.with_any_role(:Professional)
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+
+
+    # Conditional for current users
+    if user_signed_in? and current_user.profile.lname.blank? and current_user.profile.fname.blank?
+      redirect_to edit_profile_path(current_user)
+    end
+
+
     @projects = @profile.user.projects.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
     @gallery = @profile.user.projects
 
@@ -33,8 +47,8 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
+        render 'optional_form'
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
         format.json { render json: @profile.errors, status: :unprocessable_entity }

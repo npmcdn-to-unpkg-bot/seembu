@@ -11,9 +11,9 @@
               <% project.project_attachments.find(1) do |p| %>
                   <%= image_tag p.picture.url(:medium) %>
                 <% end %>
-                <div class="avatar-user-container">
-                  <%= image_tag project.user.profile.avatar.url(:thumb) %>
-                </div>
+                <!-- <div class="avatar-user-container">
+                  <%# image_tag project.user.profile.avatar.url(:thumb) %>
+                </div> -->
                 <div class="utilities-project">
                   <% if user_signed_in? and current_user.id == project.user.id %>
                     <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" do %>
