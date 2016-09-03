@@ -17,7 +17,7 @@
               <%# else %>
               <h2><%# full_name_portfolio %></h2>
               <%# end %> -->
-              <h2><%= @profile.firmname %></h2>
+              <h2><%= @profile.user.firmname %></h2>
               <% if @profile.user.has_role? :Professional %>
                 <span class="portfolio-service"><%= @profile.service %></span>
                 <%if @profile.reviews.blank? %>

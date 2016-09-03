@@ -1,6 +1,4 @@
 class ContactsController < ApplicationController
-
-  before_action :authenticate_user!
 	
   def new
   	@contact = Contact.new
@@ -15,8 +13,13 @@ class ContactsController < ApplicationController
 
     if @contact.valid?
       @contact.email = @profile.user.email
-      @contact.sender_email = current_user.email
+
+      if user_signed_in?
+        @contact.sender_email = current_user.email
+      end
+
       UserMailer.contact_email(@contact).deliver_now
+
       redirect_to profile_path( @profile ), notice: "Your messages has been sent."
     else
       flash[:alert] = "An error occurred while delivering this message."

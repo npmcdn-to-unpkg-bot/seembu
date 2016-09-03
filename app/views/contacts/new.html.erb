@@ -20,19 +20,28 @@
           <label class="form-label">Reason for Email: </label>
             <%= f.select :reason, options_for_select([['Costing & Budget Inquiry'], ['Professional Inquiry'], ['Project Related Inquiry'], ['Others']]), required: true %>
 
-          <% if current_user.profile.fname.blank? and current_user.profile.lname.blank? %>
-          	<%= f.text_field :name, placeholder: "Full Name", required: true %>
+          <% if user_signed_in? %>
+            <% if current_user.profile.fname.blank? and current_user.profile.lname.blank? %>
+            	<%= f.text_field :name, placeholder: "Full Name", required: true %>
+            <% else %>
+            	<%= f.hidden_field :name, value: full_name_contacts %>
+            <% end %>
+
+            <% if current_user.profile.contactno.blank? %>
+            	<%= f.text_field :number, placeholder: "Contact Number", required: true %>
+            <% else %>
+            	<%= f.hidden_field :number, value: current_user.profile.contactno %>
+            <% end %>
+
           <% else %>
-          	<%= f.hidden_field :name, value: full_name_contacts %>
+          
+          <%= f.text_field :name, placeholder: "Your Full Name", required: true %>
+          <%= f.text_field :sender_email, placeholder: "Your Email Address", required: true %>
+          <%= f.text_field :number, placeholder: "Your Contact Number", required: true %>
+
           <% end %>
 
-          <% if current_user.profile.contactno.blank? %>
-          	<%= f.text_field :number, placeholder: "Contact Number", required: true %>
-          <% else %>
-          	<%= f.hidden_field :number, value: current_user.profile.contactno %>
-          <% end %>
-
-          <%= f.text_area :content, placeholder: "Message for the Professional", required: true %>
+          <%= f.text_area :content, placeholder: "Your Message", required: true %>
 
           <div class="actions">
             <%= f.submit "SEND", class: "submit-action" %>

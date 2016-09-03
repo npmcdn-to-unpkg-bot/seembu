@@ -12,8 +12,11 @@ class Contact
   validates :reason,
     presence: true
 
-  validates :number,
-    presence: true
+  validates :number, presence: true,
+    format: {
+      with: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+      message: "Philippine standards at the moment."
+    }
 
   validates :content,
     presence: true

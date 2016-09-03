@@ -47,7 +47,6 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        render 'optional_form'
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
       else
         format.html { render :edit }

@@ -16,4 +16,6 @@
 /config/application.yml
 *.cache
 
+#Pop Ups
 .env
+.DS_Store
