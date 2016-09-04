@@ -16,8 +16,9 @@ Rails.application.routes.draw do
     # member do
     #   put "like" => "projects#upvote"
     # end
-    resources :project_attachments, only: [:show]
   end
+
+  resources :project_attachments, only: [:edit, :update]
 
   #root 'projects#index'
 

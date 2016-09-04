@@ -1,17 +1,6 @@
 class ProjectAttachmentsController < ApplicationController
   before_action :set_project_attachment, only: [:show, :edit, :update, :destroy]
 
-  # GET /project_attachments
-  # GET /project_attachments.json
-  def index
-    @project_attachments = ProjectAttachment.all
-  end
-
-  # GET /project_attachments/1
-  # GET /project_attachments/1.json
-  def show
-  end
-
   # GET /project_attachments/new
   def new
     @project_attachment = ProjectAttachment.new
@@ -32,7 +21,6 @@ class ProjectAttachmentsController < ApplicationController
         format.json { render :show, status: :created, location: @project_attachment }
       else
         format.html { render :new }
-        format.json { render json: @project_attachment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +30,9 @@ class ProjectAttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @project_attachment.update(project_attachment_params)
-        format.html { redirect_to @project_attachment, notice: 'Project attachment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project_attachment }
+        format.html { redirect_to @project_attachment.project, notice: 'Project attachment was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @project_attachment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,9 +42,7 @@ class ProjectAttachmentsController < ApplicationController
   def destroy
     @project_attachment.destroy
     respond_to do |format|
-      format.html { redirect_to project_attachments_url, notice: 'Project attachment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      format.html { redirect_to project_attachments_url, notice: 'Project attachment was successfully destroyed.' }    end
   end
 
   private

@@ -11,7 +11,7 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.auth-form input {
+.auth-form input, a.btn-form{
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -65,7 +65,7 @@ input.submit-action{
   transition: all linear 0.3s;
 }
 
-input.submit-action:hover{
+input.submit-action:hover, a.btn-form:hover{
   background-color: #539187 !important;
   color: #fff;
 }

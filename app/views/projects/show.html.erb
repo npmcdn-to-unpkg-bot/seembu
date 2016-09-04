@@ -2,10 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-12">
-        <div class="gallery single-item" oncontextmenu="return false;">
+        <div class="gallery single-item" oncontextmenu="return true;">
 
-        <% @project_attachments.each do |p| %>
+          <% @project_attachments.each do |p| %>
               <%= image_tag p.picture.url, :class => "img-responsive" %>
+              <%# if user_signed_in? and current_user.id == @project.user.id %>
+                <%# link_to "Edit Attachment", edit_project_attachment_path(p), class: "absolute-position"%>
+              <%# end %>
           <% end %>
 
         </div>
