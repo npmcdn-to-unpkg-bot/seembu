@@ -72,3 +72,4 @@ gem 'friendly_id', '~> 5.1'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'acts_as_votable', '~> 0.10.0'
 gem "jquery-slick-rails"
+gem 'elasticsearch_autocomplete'
