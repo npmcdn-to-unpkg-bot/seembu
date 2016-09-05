@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-	acts_as_votable
+	#acts_as_votable
 
 	has_many :project_attachments, dependent: :destroy
     accepts_nested_attributes_for :project_attachments

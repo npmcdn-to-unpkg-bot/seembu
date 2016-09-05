@@ -6,5 +6,7 @@ class AddClientToProfile < ActiveRecord::Migration
     add_column :profiles, :fbacc, :string
     add_column :profiles, :twacc, :string
     add_column :profiles, :website, :string
+    add_column :profiles, :username, :string
+    add_column :profiles, :firmname, :string
   end
 end
