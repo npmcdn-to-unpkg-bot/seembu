@@ -168,11 +168,14 @@
   width: 110px;
 
 }
+
 .navbar-default {
-    padding:20px;
+    padding: 5px;
 }
 
-
+ul.navbar-left {
+    margin-left: 10px !important;
+}
 
 /* #hero-area  */
 .animated .logo-2 {

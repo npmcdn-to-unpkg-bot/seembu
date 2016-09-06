@@ -12,7 +12,6 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .auth-form input, a.btn-form{
-  font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -23,7 +22,6 @@
   font-size: 14px;
 }
 .auth-form button {
-  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #4CAF50;
@@ -85,7 +83,6 @@ input.submit-action:hover, a.btn-form:hover{
 }
 
 textarea#project_description, textarea#profile_description, textarea#contact_content{
-  font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -98,7 +95,6 @@ textarea#project_description, textarea#profile_description, textarea#contact_con
 }
 
 .auth-form select {
-  font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   /*width: 100%;*/
