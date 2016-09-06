@@ -30,7 +30,11 @@ class RegistrationsController < Devise::RegistrationsController
 	      sign_in_and_redirect @user, :event => :authentication, notice: 'Welcome to Seembu! You have successfully signed in. You can now log in your account.'
 
 	    else
-		  render 'new', alert: 'Oh no, something went wrong. Password may be the issue or you may have the same email with somebody signed up earlier.'
+	    	if @user.has_role? :Client
+				render 'new', alert: 'Oh no, something went wrong. Password may be the issue or you may have the same email with somebody signed up earlier.'
+			elsif @user.has_role? :Professional
+				render 'professional_register', alert: 'Oh no, something went wrong. Password may be the issue or you may have the same email with somebody signed up earlier.'
+			end
 	    end
 
 	end
