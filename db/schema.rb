@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 20160820071721) do
     t.string   "fbacc"
     t.string   "twacc"
     t.string   "website"
-    t.string   "username"
-    t.string   "firmname"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
@@ -107,6 +105,8 @@ ActiveRecord::Schema.define(version: 20160820071721) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "username"
+    t.string   "firmname"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

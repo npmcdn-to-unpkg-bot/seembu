@@ -15,16 +15,17 @@ class RegistrationsController < Devise::RegistrationsController
 
 	def create
 		@user = User.new(sign_up_params)
-		
-			if @user.username.blank?
-	    		@user.add_role :Professional
-	    	elsif @user.firmname.blank?
-	    		@user.add_role :Client
-	    	else
-	    		render 'choose', alert: "Don't go fishy now."
-	    	end
+
+		if @user.username.blank?
+	   		@user.add_role :Professional
+	    elsif @user.firmname.blank?
+	   		@user.add_role :Client
+	   	else
+	   		render 'choose', alert: "Don't go fishy now."
+	   	end
 
 	    if @user.save
+
 	      # UserMailer.welcome_email(@user).deliver_later
 	      sign_in_and_redirect @user, :event => :authentication, notice: 'Welcome to Seembu! You have successfully signed in. You can now log in your account.'
 
@@ -41,7 +42,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :firmname, :username, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
   end
 
 end
