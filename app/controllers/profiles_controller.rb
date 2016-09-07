@@ -12,7 +12,10 @@ class ProfilesController < ApplicationController
       redirect_to edit_profile_path(current_user)
     end
 
-    @users = User.with_any_role(:Professional)
+    @users = User.with_role(:Professional)
+
+    # @searchpro = @users.profiles(params[:q])
+    # @profiles = @searchpro.result.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /profiles/1

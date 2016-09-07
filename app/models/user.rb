@@ -11,14 +11,23 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
 
   has_one :profile, dependent: :destroy
-    before_create :build_profile
     accepts_nested_attributes_for :profile
+  #   before_create :create_profile
+
+  # def create_profile
+  #   if current_user.with_role(:Professional)
+  #     before_create :build_profile
+  #   end
+  # end
 
   # def send_welcome_email
   #   UserMailer.welcome_email(self).deliver_later
   # end
 
+  # Scoping
+  scope :pro_profile, -> { where(:roles => { :name =>  'Professional'} ) }
 
+  # Validations
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
 end

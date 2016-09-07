@@ -26,6 +26,12 @@ class RegistrationsController < Devise::RegistrationsController
 
 	    if @user.save
 
+	    	if @user.has_role?(:Professional)
+		    	if @user.profile.blank?
+		    		@user.build_profile
+		    	end
+		    end
+
 	      # UserMailer.welcome_email(@user).deliver_later
 	      sign_in_and_redirect @user, :event => :authentication, notice: 'Welcome to Seembu! You have successfully signed in. You can now log in your account.'
 
