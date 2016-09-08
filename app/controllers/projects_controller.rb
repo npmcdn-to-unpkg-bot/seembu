@@ -35,8 +35,10 @@ class ProjectsController < ApplicationController
   def new
 
     # Conditional for current users
-    if user_signed_in? and current_user.profile.lname.blank? and current_user.profile.fname.blank?
-      redirect_to edit_profile_path(current_user), notice: "Please fill the required input."
+    if current_user.has_role?(:Professional)
+      if user_signed_in? and current_user.profile.lname.blank? and current_user.profile.fname.blank?
+        redirect_to edit_profile_path(current_user), notice: "Please fill the required input."
+      end
     end
 
     @project = current_user.projects.build

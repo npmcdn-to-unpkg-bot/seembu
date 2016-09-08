@@ -18,10 +18,8 @@ class RegistrationsController < Devise::RegistrationsController
 
 		if @user.username.blank?
 	   		@user.add_role :Professional
-	    elsif @user.firmname.blank?
+	    else
 	   		@user.add_role :Client
-	   	else
-	   		render 'choose', alert: "Don't go fishy now."
 	   	end
 
 	    if @user.save
