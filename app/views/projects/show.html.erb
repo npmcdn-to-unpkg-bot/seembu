@@ -34,7 +34,7 @@
               <% end %>
               </div>
               <div class="user-case-details">
-                <span class="fullname-user"><%= @project.user.firmname %></span></br>
+                <span class="fullname-user"><%= @project.user.profile.firmname %></span></br>
                 <span class="user-service"><%= @project.user.profile.service %> </span>
                 
                 <%if @project.user.profile.reviews.blank? %>

@@ -1,7 +1,7 @@
 <%= render 'header' %>
 
 <section class="pro-section">
-  <% @profiles.each do |user| %>
+  <% @users.each do |user| %>
   <div class="container">
     <div class="row pro-cards wow fadeInUp" data-wow-delay="0.8s">
         <div class="col-xs-6 col-md-2 thumbnail-row">
@@ -17,7 +17,7 @@
             <div class="pro-content">
               <div class="pro-name-index">
                 <%= link_to profile_path( user.profile ) do %>
-                  <h3><%= user.firmname %></h3>
+                  <h3><%= user.profile.firmname %></h3>
                 <% end %>
                 <span class="user-service"><%= user.profile.service %> </span>
 
