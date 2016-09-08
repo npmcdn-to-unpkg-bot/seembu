@@ -8,18 +8,6 @@
           </div>
         </div>
           <div class="col-md-6 col-sm-12">
-            <% if current_user.profile.fname.blank? or current_user.profile.lname.blank? %>
-                <div class="block">
-                  <h4 class="text-center"> Welcome Home Seekers! </h4></br>
-                  <p class="text-center"> I am your helper and I will help you setup your Seembu account. </p>
-                  <p> Currently, we are still in our <em>beta phase</em> at this time and we are thankful that you are part of our early stage platform. We will continue to <strong>improve in serving you</strong> so please don't hesitate to leave us your feedback. </p> </br>
-                  <h3> Right now, you'll need fill up your <strong>personal details. </strong></h3>
-                    <li> Press <strong><em>"My Accounts"</em></strong> which can be located on the top navbar.</li>
-                    <li> Locate <strong><em>"Edit My Profile", and click.</em></strong> </li>
-                    <li> Or, click the <strong><em>BUTTON BELLOW</em></strong> </li>
-                  <%= link_to('EDIT MY PROFILE', edit_profile_path( current_user.profile ) , class: "btn btn-default btn-home" )%>
-                </div>
-            <% else %>
                 <div class="block">
                   <h2 class="text-center"> Searching for something? </h2> </br>
                     <%= search_form_for(@search, class: "text-center")  do |f| %>
@@ -31,7 +19,6 @@
                       </fieldset>
                     <% end %>
                   </div>
-            <% end %>
         </div>
       </div><!-- .row close -->
     </div><!-- .container close -->

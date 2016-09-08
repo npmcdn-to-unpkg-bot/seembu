@@ -7,7 +7,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       # Custom User Field
       t.string :username, unique: true
-      t.string :firmname
       
       ## Recoverable
       t.string   :reset_password_token

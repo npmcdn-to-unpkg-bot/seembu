@@ -7,8 +7,10 @@ class ProjectsController < ApplicationController
   def index
 
     # Conditional for current users
-    if user_signed_in? and current_user.profile.lname.blank? and current_user.profile.fname.blank?
-      redirect_to edit_profile_path(current_user)
+    if current_user.has_role?(:Professional)
+      if user_signed_in? and current_user.profile.lname.blank? and current_user.profile.fname.blank?
+        redirect_to edit_profile_path(current_user)
+      end
     end
 
     @project_attachments = ProjectAttachment.all

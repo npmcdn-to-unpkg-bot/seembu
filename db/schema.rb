@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160824204653) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "profiles", force: :cascade do |t|
+    t.string   "firmname"
     t.string   "fname"
     t.string   "lname"
     t.string   "address"
@@ -46,7 +47,6 @@ ActiveRecord::Schema.define(version: 20160824204653) do
     t.string   "awards"
     t.string   "sex"
     t.date     "birthdate"
-    t.string   "occupation"
     t.string   "fbacc"
     t.string   "twacc"
     t.string   "website"
@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(version: 20160824204653) do
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "username"
-    t.string   "firmname"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

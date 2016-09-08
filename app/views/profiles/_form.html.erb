@@ -24,6 +24,7 @@
 
           <% if current_user.has_role? :Professional %>
 
+            <%= f.text_field :firmname, placeholder: "Firm/Company Name", required: true %>
             <%= f.text_field :fname, placeholder: "First Name", required: true  %>
             <%= f.text_field :lname, placeholder: "Last Name", required: true  %>
             <%= f.text_field :address, placeholder: "Address", required: true %>
