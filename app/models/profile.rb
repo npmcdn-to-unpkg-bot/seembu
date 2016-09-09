@@ -2,6 +2,9 @@ class Profile < ActiveRecord::Base
 
 	mount_uploader :avatar, AvatarUploader
 
+	extend FriendlyId
+	  friendly_id :firmname, use: :slugged
+
 	 # User Avatar Validation
     validates_integrity_of  :avatar
     validates_processing_of :avatar

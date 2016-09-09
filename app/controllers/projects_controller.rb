@@ -93,10 +93,10 @@ class ProjectsController < ApplicationController
   end
 
   #Acts as votable 
-  def upvote
-    @project.upvote_from current_user
-    redirect_to :back
-  end
+  # def upvote
+  #   @project.upvote_from current_user
+  #   redirect_to :back
+  # end
 
   #Additional Pages
   def commercials

@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   
-  before_action :set_profile, only: [:show, :edit, :update]
+  before_action :edit_profile, only: [:edit]
+  before_action :set_profile, only: [:update, :show]
   before_action :authenticate_user!, except: [:index, :show, :architects, :interior_designers, :design_firms, :architect_firms, :land_architects, :gen_contractors]
 
   # GET /profiles
@@ -34,6 +35,7 @@ class ProfilesController < ApplicationController
 
 
     @projects = @profile.user.projects.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
+
     @gallery = @profile.user.projects
 
     if @profile.reviews.blank?
@@ -93,8 +95,12 @@ class ProfilesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def edit_profile
+      @profile = Profile.friendly.find_by(user_id: params[:id])
+    end
+
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.friendly.find params[:id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
