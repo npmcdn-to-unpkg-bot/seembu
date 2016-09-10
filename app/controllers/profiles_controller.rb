@@ -15,10 +15,11 @@ class ProfilesController < ApplicationController
       end
     end
 
-    @users = User.with_role(:Professional)
+    @users = Profile.all
 
-    # @searchpro = @users.profiles(params[:q])
-    # @profiles = @searchpro.result.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
+    @q = Profile.ransack(params[:q])
+    @people = @q.result(distinct: true).order("created_at DESC")
+
   end
 
   # GET /profiles/1
